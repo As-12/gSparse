@@ -3,11 +3,7 @@
 
 namespace gSparse
 {
-	///
-	/// \ingroup Enumerations
-	///
-	/// The enumeration to report the status of computation.
-	///
+	/*! Enum class representing computation information from sparsifier */
 	enum COMPUTE_INFO
 	{
 		SUCCESSFUL = 0,    ///< Computation was successful.

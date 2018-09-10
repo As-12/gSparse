@@ -213,3 +213,10 @@ TEST(GraphCSVWriter, WriteGraphError3)
 	EXPECT_ANY_THROW(csvWriter->Write(Edges, Weight));
 }
 
+int main(int argc, char **argv)
+{
+    testing::InitGoogleTest(&argc, argv);
+    return RUN_ALL_TESTS();
+}
+
+

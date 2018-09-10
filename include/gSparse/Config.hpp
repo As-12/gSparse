@@ -2,7 +2,6 @@
 // This file is subject to the license terms in the LICENSE file
 // found in the top-level directory of this distribution.
 
-
 #ifndef GSPARSE_CONFIG_HPP
 #define GSPARSE_CONFIG_HPP
 

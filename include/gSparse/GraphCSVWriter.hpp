@@ -1,3 +1,7 @@
+// Copyright (C) 2018 Thanaphon Chavengsaksongkram <as12production@gmail.com>, He Sun <he.sun@ed.ac.uk>
+// This file is subject to the license terms in the LICENSE file
+// found in the top-level directory of this distribution.
+
 #ifndef GSPARSE_GRAPHCSVWRITER_HPP
 #define GSPARSE_GRAPHCSVWRITER_HPP
 
@@ -24,7 +28,7 @@ namespace gSparse
 	public:
         // Disallow default constructor
         GraphCSVWriter() = delete;
-        
+
         //! A copy Constructor
         GraphCSVWriter(const GraphCSVWriter & csvReader) noexcept
         {
@@ -40,6 +44,7 @@ namespace gSparse
             _weightFile = csvReader._weightFile;
             return *this;
         }
+        
         //! Constructor
         /*!
         \param EdgeFileName: A filename pointing to a CSV file that contains Edge list.
@@ -53,13 +58,13 @@ namespace gSparse
 			_edgeFile(EdgeFileName),
 			_weightFile(WeightFileName)
 		{}
-    
+
         //! Write graph data to a CSV file specified in the constructor
         /*!
         \param graph: A graph object
         \param Weights: An Eigen Matrix to receive the Weight list.
         */
-		virtual void Write(const gSparse::Graph & graph)
+		virtual void inline Write(const gSparse::Graph & graph)
 		{
             // Graph object must exist
 			if (graph == nullptr)
@@ -80,7 +85,7 @@ namespace gSparse
         /*!
         \param Edges: An edge list to be written to a CSV file
         */
-		virtual void Write(const gSparse::EdgeMatrix & Edges)
+		virtual void inline Write(const gSparse::EdgeMatrix & Edges)
 		{
 			write_csv<gSparse::EdgeMatrix>(_edgeFile, Edges);
 		}
@@ -89,7 +94,7 @@ namespace gSparse
         \param Edges: An edge list to be written to a CSV file
         \param Weights: A weight list to be written to a CSV file
         */
-		virtual void Write(const gSparse::EdgeMatrix & Edges,
+		virtual void inline Write(const gSparse::EdgeMatrix & Edges,
 			const gSparse::PrecisionMatrix & Weights)
 		{
             // Error due unspecified weight file
@@ -113,7 +118,7 @@ namespace gSparse
         \param matrix: Eigen Matrix containing the data
         */
 		template <typename M>
-		void write_csv(const std::string & fileName, const M & matrix)
+		void inline write_csv(const std::string & fileName, const M & matrix)
 		{
 			Eigen::IOFormat CSVFormat(Eigen::StreamPrecision, Eigen::DontAlignCols, _delim, "\n");
 			std::ofstream file(fileName.c_str());

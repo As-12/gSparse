@@ -1,6 +1,9 @@
+// Copyright (C) 2018 Thanaphon Chavengsaksongkram <as12production@gmail.com>, He Sun <he.sun@ed.ac.uk>
+// This file is subject to the license terms in the LICENSE file
+// found in the top-level directory of this distribution.
+
 #ifndef GSPARSE_GRAPHCSVREADER_HPP
 #define GSPARSE_GRAPHCSVREADER_HPP
-
 
 #include <exception>  // Runtime_exception
 #include <fstream>    // File IO
