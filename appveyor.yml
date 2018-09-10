@@ -1,0 +1,23 @@
+version: '1.0.{build}'
+
+image: Visual Studio 2017
+
+platform:
+  - x64
+
+configuration:
+  - Release
+  - Debug
+
+install:
+    - git submodule update --init --recursive
+
+before_build:
+    - cmake -DBUILD_DOC=OFF -DBUILD_DEMO=ON -BUILD_BENCH=OFF -BUILD_TEST=OFF -G "Visual Studio 15 2017 Win64" .
+    - cd %APPVEYOR_BUILD_FOLDER%
+    - dir
+    - cd Examples
+    - dir
+build:
+  project: $(APPVEYOR_BUILD_FOLDER)/Examples/Skeleton-Demo.sln
+
