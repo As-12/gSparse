@@ -13,16 +13,6 @@
 
 namespace gSparse
 {
-    /*! Enum class representing computation information from sparsifier */
-	enum COMPUTE_INFO
-	{
-		SUCCESSFUL = 0,  /*!< Computation was successful. */   
-		NOT_COMPUTED,    /*!< Computation has not been conducted. Users should call
-						     the `Compute()` member function. */  
-		NOT_CONVERGING,  /*!< The Sparisifer Compute's iterative method does not converge.*/   
-		NUMERICAL_ISSUE  /*!< Misc error with computation.*/
-	};
-
     //!  An interface class for Graph Sparsifier
     /*!
         This class defines an interface for gSparse's Sparsifier

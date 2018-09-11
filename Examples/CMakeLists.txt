@@ -5,17 +5,40 @@
 cmake_minimum_required(VERSION 3.5)
 
 # Set the project name
-project (Skeleton-Demo)
+project (gSparse-Examples)
 
 # Add a demo executable and link it against the library
-add_executable(demo-1 demo-1.cpp)
-target_link_libraries(demo-1
-    lib::myLibrary  # Header-only library
+add_executable(Example-1 Example-1.cpp)
+target_link_libraries(Example-1
+    Eigen3::Eigen
+    gSparse::gSparse  # Header-only library
 )
 
 # Add a demo executable and link it against the library
-add_executable(demo-2 demo-2.cpp)
-target_link_libraries(demo-2
-    lib::myLibrary  # Header-only library
+add_executable(Example-2 Example-2.cpp)
+target_link_libraries(Example-2
+    Eigen3::Eigen
+    gSparse::gSparse  # Header-only library
 )
 
+
+# Add a demo executable and link it against the library
+add_executable(Example-3 Example-3.cpp)
+target_link_libraries(Example-3
+    Eigen3::Eigen
+    gSparse::gSparse  # Header-only library
+)
+
+# Add a demo executable and link it against the library
+add_executable(Example-4 Example-4.cpp)
+target_link_libraries(Example-4
+    Eigen3::Eigen
+    gSparse::gSparse  # Header-only library
+)
+
+# Add a demo executable and link it against the library
+add_executable(Example-5 Example-5.cpp)
+target_link_libraries(Example-5
+    Eigen3::Eigen
+    gSparse::gSparse  # Header-only library
+)

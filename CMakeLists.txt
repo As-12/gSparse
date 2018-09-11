@@ -21,7 +21,7 @@ endif ()
 #    cmake .. -DCMAKE_BUILD_TYPE=DEBUG -DBUILD_DEMO=OFF -DBUILD_BENCH=ON
 
 option(BUILD_DOC "Build documentation" OFF)
-option(BUILD_DEMO "Build demo" OFF)
+option(BUILD_DEMO "Build demo" ON)
 option(BUILD_BENCH "Build benchmark" OFF)
 option(BUILD_TEST "Build test" ON)
 

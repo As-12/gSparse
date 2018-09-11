@@ -4,7 +4,7 @@
 
 #include <gtest/gtest.h>
 #include <gSparse/UndirectedGraph.hpp>
-#include <gSparse/SpectralSparsifier/ERPolicy/ApproximateER_JACOBI_CG.hpp>
+#include <gSparse/ER/ApproximateER.hpp>
 
 #include <iostream>
 TEST(ApproximateER,JACOBI_CG)
@@ -19,9 +19,9 @@ TEST(ApproximateER,JACOBI_CG)
 
     // Call constructors
     gSparse::Graph test(new gSparse::UndirectedGraph(Edges, Weights));
-    gSparse::SpectralSparsifier::ERPolicy::ApproximateER_JACOBI_CG testPolicy;
+    gSparse::ER::ApproximateER testPolicy;
     gSparse::PrecisionRowMatrix er;
-    EXPECT_NO_THROW(testPolicy.approximateER(er,test));
+    EXPECT_NO_THROW(testPolicy.CalculateER(er,test));
 }
 
 int main(int argc, char **argv)

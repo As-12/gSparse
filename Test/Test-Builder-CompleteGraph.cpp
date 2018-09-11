@@ -5,13 +5,24 @@
 #include <gtest/gtest.h>
 #include <gSparse/Builder/CompleteGraph.hpp>
 
-TEST(Builder, CompleteGraph)
+TEST(Builder, CompleteUnitGraph)
 {
 	gSparse::PrecisionMatrix completeGraph(4, 4);
 	completeGraph << 3, -1, -1, -1,
 		-1, 3, -1, -1,
 		-1, -1, 3, -1,
 		-1, -1, -1, 3;
-	EXPECT_EQ(completeGraph, gSparse::Builder::buildUnitCompletedGraph(4)->GetLaplacianMatrix().toDense());
+	EXPECT_EQ(completeGraph, gSparse::Builder::buildUnitCompleteGraph(4)->GetLaplacianMatrix().toDense());
+}
+
+TEST(Builder, CompleteRandomGraph)
+{
+	gSparse::PrecisionMatrix completeGraph(4, 4);
+	completeGraph << 3, -1, -1, -1,
+		-1, 3, -1, -1,
+		-1, -1, 3, -1,
+		-1, -1, -1, 3;
+	EXPECT_EQ(completeGraph, gSparse::Builder::buildRandomCompleteGraph(4,1.0,1.0)->GetLaplacianMatrix().toDense());
+	//std::cout<<gSparse::Builder::buildRandomCompleteGraph(4,0.0,5.0)->GetWeightList()<<std::endl;
 }
 

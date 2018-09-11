@@ -1,21 +1,27 @@
 #ifndef GSPARSE_SPECTRALSPARSIFIER_EFFECTIVERESISTANCESAMPLING_HPP
 #define GSPARSE_SPECTRALSPARSIFIER_EFFECTIVERESISTANCESAMPLING_HPP
 
-
 #include "../Config.hpp"
 #include "../Interface/Sparsifier.hpp"
 #include "../Util/Sampling.hpp"
 
 // ER Policies
-#include "ERPolicy/ApproximateER_JACOBI_CG.hpp"
+#include "../ER/ApproximateER.hpp"
+#include "../ER/ExactER.hpp"
 
-#include <random>  // distributions
-#include <vector>  // Vector
+
+#include <random>            // distributions
+#include <vector>            // Vector
 #include <unordered_map>     // Hashtable
 namespace gSparse
 {
     namespace SpectralSparsifier 
     {
+        enum ER_METHODS
+        {
+            APPROXIMATE_ER = 0,
+            EXACT_ER = 1
+        };
         //! A class which performs Spectral Sparsification by Effective Resistance sampling
         /*!
         Spectral Sparsifier aims to preserve the eigen values of the graph. This class
@@ -26,8 +32,7 @@ namespace gSparse
         Original paper <https://arxiv.org/pdf/0803.0929.pdf>
 
         */
-        template <typename ERPolicy>
-        class _ERSampling : public ISparsifier, private ERPolicy
+        class ERSampling : public ISparsifier
         {
         protected:
             double _c;                                  //!< C-hyper parameter.
@@ -35,31 +40,32 @@ namespace gSparse
             gSparse::COMPUTE_INFO _computeInfo;         //!< Status of sparsifier
             gSparse::Graph _graph;                      //!< Graph to Sparsify
             gSparse::PrecisionRowMatrix _er;            //!< Effective Resistance
-
-            using ERPolicy::approximateER;              //!< EffectiveResistance Calculation Policy
+            gSparse::EffectiveResistance _erCalculator;     //!< EffectiveResistance Calculation Policy
+                          
+            gSparse::SpectralSparsifier::ER_METHODS _erPolicy;
         public:
+
             //! Write graph data to a CSV file specified in the constructor
             /*!
             \param Edges: An edge list to be written to a CSV file
             \param Weights: A weight list to be written to a CSV file
             */
-            _ERSampling(const gSparse::Graph & graph, 
-            const double C = 4.0f, 
-            const double Epsilon = 0.3f)
+            ERSampling(const gSparse::Graph & graph, 
+            double C = 4.0f, 
+            double Epsilon = 0.3f,
+            gSparse::SpectralSparsifier::ER_METHODS ERPolicy = gSparse::SpectralSparsifier::APPROXIMATE_ER
+            )
             {
-                #ifndef NDEBUG
-                    assert(C > 0.0f);
-                    assert(Epsilon > 0.0f);
-                #endif
-                _c = C;
-                _eps = Epsilon;
+                SetC(C);
+                SetEpsilon(Epsilon);
                 _graph = graph;
                 _computeInfo = gSparse::NOT_COMPUTED;
+                SetERPolicy(ERPolicy);
             }
             virtual inline gSparse::COMPUTE_INFO Compute()
             {
                 //Calculate Effective Resistance
-                _computeInfo = approximateER(_er, _graph);
+                _computeInfo = _erCalculator->CalculateER(_er, _graph);
                 return _computeInfo;
             }
             virtual inline gSparse::Graph GetSparsifiedGraph()
@@ -86,29 +92,47 @@ namespace gSparse
                 // The algorithm samples O(n log n / ep^2) times edges
                 std::size_t samplingCount = static_cast<std::size_t>(
                     std::ceil(_graph->GetNodeCount() * std::log(_graph->GetNodeCount()) / std::pow(_eps, 2)));
-
                 // Sample edges from a distribution, then add to a hash table
                 std::unordered_map<std::size_t, gSparse::PRECISION> sparsifiedMap;
                 for (std::size_t i = 0; i != samplingCount; ++i)
                 {
-                    std::size_t edgeIndex = gSparse::Util::sampleDiscreteDistribution(samplingDistribution);
+                    
+                    std::size_t edgeIndex = gSparse::Util::sample(samplingDistribution);
                     sparsifiedMap[edgeIndex] += _graph->GetWeightList()(edgeIndex) / samplingWeights[edgeIndex];
                 }
-
+                
                 // Build Graph object from sparsified information
                 gSparse::EdgeMatrix resultEdge(sparsifiedMap.size(), 2);
                 gSparse::PrecisionRowMatrix resultWeight(sparsifiedMap.size(), 1);
                 std::size_t row = 0;
-                for (auto const& x : sparsifiedMap)
+                for (auto x = sparsifiedMap.begin(); x != sparsifiedMap.end(); ++x)
                 {
-                    resultEdge(row, 0) = _graph->GetEdgeList()(x.first, 0);
-                    resultEdge(row, 1) = _graph->GetEdgeList()(x.first, 1);
-                    resultWeight(row, 0) = x.second;
+                    resultEdge(row, 0) = _graph->GetEdgeList()(x->first, 0);
+                    resultEdge(row, 1) = _graph->GetEdgeList()(x->first, 1);
+                    resultWeight(row, 0) = x->second;
                     ++row;
                 }
+                //return nullptr;
                 return std::make_shared<gSparse::UndirectedGraph>(resultEdge, resultWeight);
             }
         public:
+            inline void SetERPolicy(ER_METHODS policy)
+            {
+                assert (policy == gSparse::SpectralSparsifier::APPROXIMATE_ER || 
+                        policy == gSparse::SpectralSparsifier::EXACT_ER);
+                
+                switch (policy)
+                {
+                case gSparse::SpectralSparsifier::EXACT_ER:
+                    _erCalculator = std::make_shared<gSparse::ER::ExactER>(); 
+                    _erPolicy = gSparse::SpectralSparsifier::EXACT_ER;
+                 break;
+                case gSparse::SpectralSparsifier::APPROXIMATE_ER:
+                default:
+                    _erCalculator = std::make_shared<gSparse::ER::ApproximateER>();
+                    _erPolicy = gSparse::SpectralSparsifier::APPROXIMATE_ER;
+                }
+            }
             /* set and get */
             inline void SetC(double C)
             {
@@ -126,15 +150,14 @@ namespace gSparse
             }
             inline double GetC() const { return _c; }
             inline double GetEpsilon() const { return _eps; }
+            inline gSparse::SpectralSparsifier::ER_METHODS GetERPolicy() const { return _erPolicy; }
             inline gSparse::COMPUTE_INFO GetInfo() const { return _computeInfo; }
-            const gSparse::PrecisionRowMatrix & GetEffectiveResistance() const
+            inline const gSparse::PrecisionRowMatrix & GetEffectiveResistance() const
             {
                 return _er;
             }
         };
 
-        // Set ER Policy here
-        typedef _ERSampling<ERPolicy::ApproximateER_JACOBI_CG> ERSampling;
     }
 }
 #endif

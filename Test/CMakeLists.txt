@@ -71,7 +71,7 @@ target_link_libraries(test-Util-JL
 add_test(NAME Test-Util-JL COMMAND test-Util-JL)
 
 #####################################
-# Add ERPolicy Test
+# Add ApproximateER Policy Test
 #####################################
 add_executable(test-ApproximateER Test-ApproximateER.cpp)
 # Link the test executable
@@ -84,6 +84,22 @@ target_link_libraries(test-ApproximateER
 )
 #target_compile_options(test-ApproximateER PRIVATE --coverage)
 add_test(NAME Test-ApproximateER COMMAND test-ApproximateER)
+
+#####################################
+# Add ExactER Policy Test
+#####################################
+add_executable(test-ExactER Test-ExactER.cpp)
+# Link the test executable
+target_link_libraries(test-ExactER
+    GTest::GTest 
+    GTest::Main
+    Eigen3::Eigen
+    gSparse::gSparse  # Header-only library
+   # --coverage
+)
+#target_compile_options(test-ExactER PRIVATE --coverage)
+add_test(NAME Test-ExactER COMMAND test-ExactER)
+
 
 #####################################
 # Add Spectral Sparsifier by ER 

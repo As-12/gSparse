@@ -16,11 +16,26 @@ namespace gSparse
 		Sample a number based from given discrete distribution
 		The pseudo random generateuses Mersenne Twister algorithm.
 		*/
-		inline int sampleDiscreteDistribution(std::discrete_distribution<> & distribution)
+		inline int sample(std::discrete_distribution<> & distribution)
 		{
 			thread_local std::mt19937 engine(std::random_device{}());
 			return distribution(engine);
 		}
+
+		/*
+		Uniform Sampling
+		*/
+		inline double sample(std::uniform_real_distribution<> & distribution)
+		{
+			thread_local std::mt19937 engine(std::random_device{}());
+			return distribution(engine);
+		}
+		inline double sample(std::uniform_int_distribution<> & distribution)
+		{
+			thread_local std::mt19937 engine(std::random_device{}());
+			return distribution(engine);
+		}
+		
     }
 }
 
