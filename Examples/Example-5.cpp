@@ -45,7 +45,6 @@ int main()
                                    "sparsifier-dumbell-eps75-weights.csv");
     writer.Write(result);
     return EXIT_SUCCESS;
-    return EXIT_SUCCESS;
 }
 
 
