@@ -32,7 +32,7 @@ namespace gSparse
         //!  Pure virtual function to get Graph Edge List Matrix
 		virtual const gSparse::EdgeMatrix & GetEdgeList() const = 0;
         //!  Pure virtual function to get Graph Weight List Matrix
-		virtual const gSparse::PrecisionMatrix & GetWeightList() const = 0;
+		virtual const gSparse::PrecisionRowMatrix & GetWeightList() const = 0;
         //!  Pure virtual function to get number of edges in the graph
 		virtual std::size_t GetEdgeCount() const = 0;
         //!  Pure virtual function to get number of nodes in the graph

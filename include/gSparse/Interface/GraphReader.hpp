@@ -27,8 +27,8 @@ namespace gSparse
         \param Edges: An Eigen Matrix to receive the Edge list.
         \param Weights: An Eigen Matrix to receive the Weight list associated to the Edge list.
         */
-		virtual void Read(Eigen::Matrix<std::size_t, Eigen::Dynamic, Eigen::Dynamic> & Edges,
-			Eigen::Matrix<PRECISION, Eigen::Dynamic, Eigen::Dynamic> & Weights) = 0;
+		virtual void Read(gSparse::EdgeMatrix & Edges,
+			gSparse::PrecisionRowMatrix & Weights) = 0;
         //!  Default virtual destructor
 		virtual ~IGraphReader() = default;
 	};

@@ -8,7 +8,6 @@
 
 namespace gSparse
 {
-	
 	template <typename ScalarType>
 	class IGraph
 	{

@@ -23,6 +23,8 @@ namespace gSparse
     */
     typedef Eigen::Matrix<gSparse::PRECISION, Eigen::Dynamic, Eigen::Dynamic> PrecisionMatrix;
 
+    typedef Eigen::Matrix<gSparse::PRECISION, Eigen::Dynamic, Eigen::Dynamic,Eigen::RowMajor> PrecisionRowMatrix;
+
     //! EdgeMatrix Definition
     /*! EdgeMatrix is a typedef of Eigen::Matrix<gSparse::PRECISION, -1, -1>
     *   This is to shorten the code for readability.
@@ -34,6 +36,7 @@ namespace gSparse
     *   This is to shorten the code for readability.
     */
     typedef Eigen::SparseMatrix<gSparse::PRECISION> SparsePrecisionMatrix;
+
 }
 
 #endif

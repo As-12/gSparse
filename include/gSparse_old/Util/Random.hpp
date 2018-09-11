@@ -26,7 +26,8 @@ namespace gSparse
 			return result;
 		}
 
-		/* Sample a number based from given discrete distribution
+		/* 
+		Sample a number based from given discrete distribution
 		The pseudo random generateuses Mersenne Twister algorithm.
 		*/
 		inline int sampleDiscreteDistribution(std::discrete_distribution<> & distribution)

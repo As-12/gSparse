@@ -12,7 +12,8 @@ project(Skeleton-Header)
 # RELEASE Build Type
 if (NOT CMAKE_BUILD_TYPE)
   message(STATUS "Default build is Release")
-  set(CMAKE_BUILD_TYPE "RELEASE")
+  #set(CMAKE_BUILD_TYPE "RELEASE")
+  set(CMAKE_BUILD_TYPE "DEBUG")
 endif ()
 
 # Options can be turned on and off by providing cmake with a -DOPTIONNAME=ON (or OFF) argument.

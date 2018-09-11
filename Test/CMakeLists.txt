@@ -40,6 +40,70 @@ target_link_libraries(test-GraphCSVWriter
 #target_compile_options(test-GraphCSVWriter PRIVATE --coverage)
 add_test(NAME Test-CSVWriter COMMAND test-GraphCSVWriter)
 
+#####################################
+# Add Undirected Graph Test
+#####################################
+add_executable(test-UndirectedGraph Test-UndirectedGraph.cpp)
+# Link the test executable
+target_link_libraries(test-UndirectedGraph
+    GTest::GTest 
+    GTest::Main
+    Eigen3::Eigen
+    gSparse::gSparse  # Header-only library
+   # --coverage
+)
+#target_compile_options(test-UndirectedGraph PRIVATE --coverage)
+add_test(NAME Test-UndirectedGraph COMMAND test-UndirectedGraph)
+
+#####################################
+# Add Utility/JL Test
+#####################################
+add_executable(test-Util-JL Test-Util-JL.cpp)
+# Link the test executable
+target_link_libraries(test-Util-JL
+    GTest::GTest 
+    GTest::Main
+    Eigen3::Eigen
+    gSparse::gSparse  # Header-only library
+   # --coverage
+)
+#target_compile_options(test-Util-JL PRIVATE --coverage)
+add_test(NAME Test-Util-JL COMMAND test-Util-JL)
+
+#####################################
+# Add ERPolicy Test
+#####################################
+add_executable(test-ApproximateER Test-ApproximateER.cpp)
+# Link the test executable
+target_link_libraries(test-ApproximateER
+    GTest::GTest 
+    GTest::Main
+    Eigen3::Eigen
+    gSparse::gSparse  # Header-only library
+   # --coverage
+)
+#target_compile_options(test-ApproximateER PRIVATE --coverage)
+add_test(NAME Test-ApproximateER COMMAND test-ApproximateER)
+
+#####################################
+# Add Spectral Sparsifier by ER 
+#####################################
+
+
+add_executable(test-SpectralSparsifier-ERSampling Test-SpectralSparsifier-ERSampling.cpp)
+# Link the test executable
+target_link_libraries(test-SpectralSparsifier-ERSampling
+    GTest::GTest 
+    GTest::Main
+    Eigen3::Eigen
+    gSparse::gSparse  # Header-only library
+   # --coverage
+)
+#target_compile_options(test-SpectralSparsifier-ERSampling PRIVATE --coverage)
+add_test(NAME Test-SpectralSparsifier-ERSampling COMMAND test-SpectralSparsifier-ERSampling)
+
+
+
 # Transfer files
 
 file(COPY ${CMAKE_CURRENT_SOURCE_DIR}/test-edges.csv

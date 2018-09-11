@@ -64,16 +64,16 @@ namespace gSparse
         \param Weights: An Eigen Matrix to receive the Weight list.
         */
 		virtual void Read(gSparse::EdgeMatrix & Edges,
-			gSparse::PrecisionMatrix & Weights)
+			gSparse::PrecisionRowMatrix & Weights)
 		{
             // Load data from CSV file and store into Edges
 			load_csv<gSparse::EdgeMatrix>(_edgeFile, Edges);
 			
             // Load data from CSV file and store into Edges. If weight file is "None", set weights to one.
             if (_weightFile != "None")
-				load_csv<gSparse::PrecisionMatrix>(_weightFile, Weights);
+				load_csv<gSparse::PrecisionRowMatrix>(_weightFile, Weights);
 			else
-				Weights = gSparse::PrecisionMatrix::Ones(Edges.rows(), 1);
+				Weights = gSparse::PrecisionRowMatrix::Ones(Edges.rows(), 1);
 		}
 
         //! Default destructor
@@ -82,8 +82,6 @@ namespace gSparse
 		char _delim;  //!< CSV file delimeter
 		std::string  _edgeFile;  //!< Edge file name
 		std::string  _weightFile;  //!< Weight file name
-
-
         //! Template function that load CSV data into Eigen Matrix
         /*!
         \param path: path to filename.
@@ -120,7 +118,6 @@ namespace gSparse
 			}
             // Close file
 			indata.close();
-
             // Map STL vector to Eigen Matrix
 			matrix = Eigen::Map<const Eigen::Matrix<typename M::Scalar, M::RowsAtCompileTime, M::ColsAtCompileTime, Eigen::RowMajor>>(values.data(), rows, values.size() / rows);
 		}

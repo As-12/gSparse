@@ -19,11 +19,11 @@
 
 #include "Config.hpp"
 #include "Interface/Graph.hpp"
+#include "Interface/GraphReader.hpp"
 
 /* TODO:
     // Support move operator. Review Eigen documentation.
 */
-
 
 namespace gSparse
 {
@@ -34,30 +34,30 @@ namespace gSparse
 	class UndirectedGraph : public IGraph
 	{
 	public:
-		//! A copy constructor
-		UndirectedGraph(const UndirectedGraph & graph):    
-        {
+		//! Graph data type should not be copied by value
+		UndirectedGraph(const UndirectedGraph & graph)  = delete;  
+        /*{
             // Call assignment operator
             *this = graph; 
-        }
-        //! An assignment operator to copy every elements of the class
-		UndirectedGraph & operator=(const UndirectedGraph & rhs)
-        {
+        }*/
+        //! Graph data type should not be copied by value / reassigne due to Eigen data type
+		UndirectedGraph & operator=(const UndirectedGraph & rhs) = delete;
+        /*{
             if (this != &rhs)
             {            
                 // Perform expensive copy on these matrix
-                this->_adjMatrix = graph._adjMatrix;
-                this->_degMatrix = graph._degMatrix;
-                this->_incidentMatrix = graph._incidentMatrix;
-                this->_weightMatrix = graph._weightMatrix;
-                this->_laplacianMatrix = graph._laplacianMatrix;
-                this->_edges = graph._edges;
-                this->_weight = graph._weights;
-                this->_edgeCount = graph._edgeCount;
-                this->_nodeCount = graph._nodeCount;
+                this->_adjMatrix = rhs._adjMatrix;
+                this->_degMatrix = rhs._degMatrix;
+                this->_incidentMatrix = rhs._incidentMatrix;
+                this->_weightMatrix = rhs._weightMatrix;
+                this->_laplacianMatrix = rhs._laplacianMatrix;
+                this->_edges = rhs._edges;
+                this->_weights = rhs._weights;
+                this->_edgeCount = rhs._edgeCount;
+                this->_nodeCount = rhs._nodeCount;
             }
             return *this;
-        }
+        }*/
 
 		//! A constructor to initialize graph based on GraphReader
         /*!
@@ -70,7 +70,6 @@ namespace gSparse
 				throw std::invalid_argument("UndirectedGraph: DataReader must not be NULL");
 			}
 			DataReader->Read(_edges, _weights);
-
 			//Initialize the graph system. 
 			_initializeSystem();
 		}
@@ -90,7 +89,7 @@ namespace gSparse
         \param Weights: An Eigen Matrix containing associated Weights.
         */
 		UndirectedGraph(const gSparse::EdgeMatrix & Edges,
-			const gSparse::PrecisionMatrix & Weights) :
+			const gSparse::PrecisionRowMatrix & Weights) :
 			_edges(Edges),
 			_weights(Weights)
 		{
@@ -109,7 +108,7 @@ namespace gSparse
 		//! Return Graph's Edge List Matrix
         virtual inline const gSparse::EdgeMatrix & GetEdgeList() const { return _edges; }
 		//! Return Graph's Weight List Matrix
-        virtual inline const gSparse::PrecisionMatrix & GetWeightList() const { return _weights; }
+        virtual inline const gSparse::PrecisionRowMatrix & GetWeightList() const { return _weights; }
         //! Return the number of Edges in the Graph
 		virtual inline std::size_t GetEdgeCount() const { return _edgeCount; }
 		//! Return the number of Nodes in the Graph
@@ -124,7 +123,7 @@ namespace gSparse
         gSparse::SparsePrecisionMatrix _laplacianMatrix;  //!< laplacian matrix representation
 
 		gSparse::EdgeMatrix _edges;                        //!< edge list
-		gSparse::PrecisionMatrix _weights;                 //!< weight list
+		gSparse::PrecisionRowMatrix _weights;                 //!< weight list
 
 		std::size_t _edgeCount;                            //!< count of edges
 		std::size_t _nodeCount;                            //!< number of vertices
@@ -132,7 +131,11 @@ namespace gSparse
         //! Private function to perform validate and build graph representations
 		virtual inline void _initializeSystem()
 		{
-			_validateInput();
+            #ifndef NDEBUG
+                // Enable input check only in DEBUG build
+                // Some of the checks are expensive such as checking minCoeff with O(n) runtime.
+			    _validateInput(); 
+            #endif
 			_initializeMatrixSystem();
 		}
         //! validate preconditions
@@ -180,6 +183,8 @@ namespace gSparse
 			adjacentList.reserve(_edgeCount * 2);
 			incidentList.reserve(_edgeCount * 2);
 			weightList.reserve(_edgeCount);
+
+            // Vectorized Zero 
 			Eigen::VectorXd degVector = Eigen::VectorXd::Zero(_nodeCount);
             
 			for (std::size_t i = 0; i != _edgeCount; ++i)

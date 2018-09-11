@@ -1,4 +1,7 @@
-// AllTests.cpp
+// Copyright (C) 2018 Thanaphon Chavengsaksongkram <as12production@gmail.com>, He Sun <he.sun@ed.ac.uk>
+// This file is subject to the license terms in the LICENSE file
+// found in the top-level directory of this distribution.
+
 #include <gtest/gtest.h>
 #include <gSparse/GraphCSVWriter.hpp>
 #include <Eigen/Dense>
@@ -72,7 +75,7 @@ public:
 	{
 		return dummyEdge;;
 	}
-	const gSparse::PrecisionMatrix & GetWeightList() const
+	const gSparse::PrecisionRowMatrix & GetWeightList() const
 	{
 		return dummyWeight;
 	}

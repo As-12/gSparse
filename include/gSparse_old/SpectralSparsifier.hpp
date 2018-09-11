@@ -1,3 +1,8 @@
+// Copyright (C) 2018 Thanaphon Chavengsaksongkram <as12production@gmail.com>, He Sun <he.sun@ed.ac.uk>
+// This file is subject to the license terms in the LICENSE file
+// found in the top-level directory of this distribution.
+
+
 #ifndef GSPARSE_SPECTRAL_SPARSIFIER_HPP
 #define GSPARSE_SPECTRAL_SPARSIFIER_HPP
 #include <Eigen/Dense>

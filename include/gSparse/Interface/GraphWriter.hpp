@@ -43,7 +43,7 @@ namespace gSparse
         \param Weights: An Eigen Matrix of Graph's Weight.
         */
 		virtual void Write(const gSparse::EdgeMatrix & Edges,
-			const gSparse::PrecisionMatrix & Weights) = 0;
+			const gSparse::PrecisionRowMatrix & Weights) = 0;
 
         //!  Default Constructor for IGraphWriter.
 		virtual ~IGraphWriter() = default;

@@ -44,7 +44,6 @@ namespace gSparse
             _weightFile = csvReader._weightFile;
             return *this;
         }
-        
         //! Constructor
         /*!
         \param EdgeFileName: A filename pointing to a CSV file that contains Edge list.
@@ -58,7 +57,6 @@ namespace gSparse
 			_edgeFile(EdgeFileName),
 			_weightFile(WeightFileName)
 		{}
-
         //! Write graph data to a CSV file specified in the constructor
         /*!
         \param graph: A graph object
@@ -79,7 +77,7 @@ namespace gSparse
             // Write the Edge List
 			write_csv<gSparse::EdgeMatrix>(_edgeFile, graph->GetEdgeList());
             // Write the Weight List
-			write_csv<gSparse::PrecisionMatrix>(_weightFile, graph->GetWeightList());
+			write_csv<gSparse::PrecisionRowMatrix>(_weightFile, graph->GetWeightList());
 		}
         //! Write graph data to a CSV file specified in the constructor
         /*!
@@ -95,7 +93,7 @@ namespace gSparse
         \param Weights: A weight list to be written to a CSV file
         */
 		virtual void inline Write(const gSparse::EdgeMatrix & Edges,
-			const gSparse::PrecisionMatrix & Weights)
+			const gSparse::PrecisionRowMatrix & Weights)
 		{
             // Error due unspecified weight file
 			if (_weightFile == "None")
@@ -103,7 +101,7 @@ namespace gSparse
             // Write Edge list
 			write_csv<gSparse::EdgeMatrix>(_edgeFile, Edges);
             // Write Weight list
-			write_csv<gSparse::PrecisionMatrix>(_weightFile, Weights);
+			write_csv<gSparse::PrecisionRowMatrix>(_weightFile, Weights);
 		}
 		virtual ~GraphCSVWriter() = default;
 	private:
