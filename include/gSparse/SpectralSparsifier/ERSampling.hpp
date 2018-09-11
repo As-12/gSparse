@@ -35,7 +35,7 @@ namespace gSparse
             gSparse::COMPUTE_INFO _computeInfo;         //!< Status of sparsifier
             gSparse::Graph _graph;                      //!< Graph to Sparsify
             gSparse::PrecisionRowMatrix _er;            //!< Effective Resistance
-            
+
             using ERPolicy::approximateER;              //!< EffectiveResistance Calculation Policy
         public:
             //! Write graph data to a CSV file specified in the constructor
@@ -132,7 +132,6 @@ namespace gSparse
                 return _er;
             }
         };
-
 
         // Set ER Policy here
         typedef _ERSampling<ERPolicy::ApproximateER_JACOBI_CG> ERSampling;

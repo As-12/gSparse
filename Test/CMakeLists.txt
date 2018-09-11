@@ -102,6 +102,23 @@ target_link_libraries(test-SpectralSparsifier-ERSampling
 #target_compile_options(test-SpectralSparsifier-ERSampling PRIVATE --coverage)
 add_test(NAME Test-SpectralSparsifier-ERSampling COMMAND test-SpectralSparsifier-ERSampling)
 
+#####################################
+# Add Builder Complete Graph
+#####################################
+add_executable(test-Builder-CompleteGraph Test-Builder-CompleteGraph.cpp)
+# Link the test executable
+target_link_libraries(test-Builder-CompleteGraph
+    GTest::GTest 
+    GTest::Main
+    Eigen3::Eigen
+    gSparse::gSparse  # Header-only library
+   # --coverage
+)
+#target_compile_options(test-Builder-CompleteGraph PRIVATE --coverage)
+add_test(NAME Test-Builder-CompleteGraph COMMAND test-Builder-CompleteGraph)
+
+
+
 
 
 # Transfer files

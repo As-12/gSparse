@@ -21,15 +21,6 @@ namespace gSparse
 			thread_local std::mt19937 engine(std::random_device{}());
 			return distribution(engine);
 		}
-
-
-		inline double sampleUniform()
-		{
-			thread_local std::mt19937 engine;
-			engine.seed(std::random_device()());
-			std::uniform_real_distribution<> d(0, 1);
-			return d(engine);
-		}
     }
 }
 
