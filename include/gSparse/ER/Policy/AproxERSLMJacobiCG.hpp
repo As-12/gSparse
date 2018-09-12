@@ -57,6 +57,8 @@ namespace gSparse
                             er(j) += pow(std::abs(x(graph->GetEdgeList()(j, 0)) - x(graph->GetEdgeList()(j, 1))), 2.0f);
                         }
                     }
+                    // Non finite element goes to zero
+                    er = er.unaryExpr([](double v) { return std::isfinite(v)? v : 0.0; });
                     if (er.rows() != graph->GetEdgeCount())
                         return gSparse::NOT_CONVERGING;
                     return gSparse::SUCCESSFUL;       

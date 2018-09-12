@@ -24,6 +24,7 @@
 /* TODO:
     // Support move operator. Review Eigen documentation.
 */
+#include <iostream>
 
 namespace gSparse
 {
@@ -131,11 +132,13 @@ namespace gSparse
         //! Private function to perform validate and build graph representations
 		virtual inline void _initializeSystem()
 		{
-            #ifndef NDEBUG
+           // #ifndef NDEBUG
                 // Enable input check only in DEBUG build
                 // Some of the checks are expensive such as checking minCoeff with O(n) runtime.
+				std::cout<<"Validating"<<std::endl;
 			    _validateInput(); 
-            #endif
+            //#endif
+			std::cout<<"Initializing"<<std::endl;
 			_initializeMatrixSystem();
 		}
         //! validate preconditions
@@ -154,15 +157,15 @@ namespace gSparse
 				ss << "UndirectedGraph: Edges.cols(): must equal to two" << std::endl;
 				throw std::invalid_argument(ss.str());
 			}
-			//Edge must start at zero
-			if (_edges.minCoeff() != 0)
+			//Edge must be greater or equal to zero
+			/*if (_edges.minCoeff() >= 0)
 			{
 				std::stringstream ss;
-				ss << "UndirectedGraph: Vertices must start at zero" << std::endl;
+				ss << "UndirectedGraph: Vertices less than or equal zero" << std::endl;
 				throw std::invalid_argument(ss.str());
-			}
+			}*/
 			//Weight must be non-zero non- start at zero
-			if (_weights.minCoeff() <= 0)
+			if (_weights.minCoeff() < 0)
 			{
 				std::stringstream ss;
 				ss << "UndirectedGraph: Weights must be greater than zero" << std::endl;
@@ -209,24 +212,38 @@ namespace gSparse
 				//Weight matrix
 				weightList.push_back(Eigen::Triplet<gSparse::PRECISION>(i, i, _weights(i)));
 			}
-
+			std::cout<<"Adj"<<std::endl;
 			// Create adj matrix
 			_adjMatrix = gSparse::SparsePrecisionMatrix(_nodeCount, _nodeCount);
 			_adjMatrix.setFromTriplets(adjacentList.begin(), adjacentList.end());
-
+			
+			std::cout<<"Deg"<<std::endl;
+			
+			std::vector<Eigen::Triplet<gSparse::PRECISION>> degreeList;
+			degreeList.reserve(degVector.size());
+			for (int i = 0; i != degVector.size(); ++i)
+			{
+				degreeList.push_back(Eigen::Triplet<gSparse::PRECISION>(i, i, degVector(i)));
+			}
 			//Create degree matrix
-			_degMatrix = degVector.asDiagonal().toDenseMatrix().sparseView();
+			_degMatrix = gSparse::SparsePrecisionMatrix(_nodeCount, _nodeCount);
+			_degMatrix.setFromTriplets(degreeList.begin(), degreeList.end());
 
+			// Building a degree Matrix (This is bad code)
+			//_degMatrix = degreeList.diagonal().toDense().sparseView();
+
+			std::cout<<"Incidentt"<<std::endl;
 			//Create incident matrix
 			_incidentMatrix = gSparse::SparsePrecisionMatrix(_edgeCount, _nodeCount);
 			_incidentMatrix.setFromTriplets(incidentList.begin(), incidentList.end());
-
+			std::cout<<"Weight"<<std::endl;
 			//Create weight matrix
 			_weightMatrix = gSparse::SparsePrecisionMatrix(_edgeCount, _edgeCount);
 			_weightMatrix.setFromTriplets(weightList.begin(), weightList.end());
-
+			std::cout<<"Laplacian"<<std::endl;
             //Create Laplacian matrix
             _laplacianMatrix = _degMatrix - _adjMatrix; 
+			
 		}
 	};
 }

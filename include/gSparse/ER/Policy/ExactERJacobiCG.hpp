@@ -33,7 +33,8 @@ namespace gSparse
                         b.toDense();
                         er(i) = b.toDense() * x;
                     }
-                    
+                    // Non finite number goes to zero
+                    er = er.unaryExpr([](double v) { return std::isfinite(v)? v : 0.0; });
                     return gSparse::SUCCESSFUL;
                 }
             };

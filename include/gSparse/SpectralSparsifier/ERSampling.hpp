@@ -112,7 +112,6 @@ namespace gSparse
                     resultWeight(row, 0) = x->second;
                     ++row;
                 }
-                //return nullptr;
                 return std::make_shared<gSparse::UndirectedGraph>(resultEdge, resultWeight);
             }
         public:
