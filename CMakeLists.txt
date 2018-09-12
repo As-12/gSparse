@@ -35,14 +35,9 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 ##############################
 find_package(Eigen3)
 if(Eigen3)
-  find_package(Eigen3 REQUIRED eigen3)
-  MESSAGE(STATUS "Found ${EIGEN3_INCLUDE_DIRS} by FindEigen.cmake")
+  MESSAGE(STATUS "Eigen 3 Found ${EIGEN3_INCLUDE_DIRS}")
 else(Eigen3)
-  find_package(PkgConfig)
-  pkg_check_modules(EIGEN3 REQUIRED eigen3)
-  #pkg_search_module(EIGEN3 REQUIRED eigen3)
-  include_directories( ${EIGEN3_INCLUDE_DIRS} )
-  MESSAGE(STATUS "Found ${EIGEN3_INCLUDE_DIRS} by pkg-config")
+  MESSAGE(STATUS "Eigen3 Not Found. Potential Error")
 endif(Eigen3)
 
 ##############################
