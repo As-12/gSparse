@@ -5,13 +5,26 @@ image: Visual Studio 2017
 platform:
   - x64
 
+environment:
+  EIGEN3_ROOT:       C:\dev\Eigen3\include\eigen3
+
 configuration:
   - Release
   - Debug
 
 install:
     - git submodule update --init --recursive
-
+    - cmd: if not exist c:\dev\Eigen3\include\eigen3\Eigen\Core (
+            curl -L -o eigen-lib.tar.gz http://bitbucket.org/eigen/eigen/get/3.3.5.tar.gz &&
+            cmake -E tar zxf eigen-lib.tar.gz &&
+            cd eigen-lib &&
+            mkdir build &&
+            cd build &&
+            cmake -G "Visual Studio 12" -DCMAKE_BUILD_TYPE=Debug -DCMAKE_INSTALL_PREFIX="c:\dev\Eigen3" .. &&
+            cmake --build . --target install --config Debug &&
+            cd ..\..
+         ) else (echo Using cached Eigen3)
+         
 before_build:
     - cmake -DBUILD_DOC=OFF -DBUILD_DEMO=ON -BUILD_BENCH=OFF -BUILD_TEST=OFF -G "Visual Studio 15 2017 Win64" .
     - cd %APPVEYOR_BUILD_FOLDER%

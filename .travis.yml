@@ -12,6 +12,9 @@ compiler:
   - clang
 before_install:
   - pip install --user cpp-coveralls
+  - wget http://bitbucket.org/eigen/eigen/get/3.3.5.tar.gz -O /tmp/eigen.tar.bz2
+  - mkdir eigen3-src && tar -xvjf /tmp/eigen.tar.bz2 -C eigen3-src --strip-components 1
+  - cd eigen3-src && mkdir build && cd build && cmake .. && sudo make install && cd ../..
 script: ./travis.sh
 env:
   matrix:
