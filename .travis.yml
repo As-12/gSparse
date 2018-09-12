@@ -14,7 +14,7 @@ before_install:
   - pip install --user cpp-coveralls
   - wget http://bitbucket.org/eigen/eigen/get/3.3.5.tar.gz -O /tmp/eigen.tar.gz
   - mkdir eigen3 
-  - tar -xvjf /tmp/eigen.tar.gz -C eigen3 --strip-components 1
+  - tar -xvzf /tmp/eigen.tar.gz -C eigen3 --strip-components 1
   - cd eigen3 
   - mkdir build
   - cd build
