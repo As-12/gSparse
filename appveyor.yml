@@ -6,8 +6,8 @@ platform:
   - x64
 
 environment:
-  EIGEN3_ROOT:  C:\projects\eigen-eigen-b3f3d4950030\
-  Eigen3_DIR: C:\projects\eigen-eigen-b3f3d4950030\
+  EIGEN3_ROOT:  C:\projects\eigen-eigen-b3f3d4950030\cmake
+  Eigen3_DIR: C:\projects\eigen-eigen-b3f3d4950030\cmake
 configuration:
   - Release
   - Debug
@@ -17,7 +17,7 @@ install:
   - ps: wget http://bitbucket.org/eigen/eigen/get/3.3.5.zip -outfile eigen3.zip
   - cmd: 7z x eigen3.zip -o"C:\projects" -y > nul
 before_build:
-    - cmake -DBUILD_DOC=OFF -DBUILD_DEMO=ON -BUILD_BENCH=OFF -D EIGEN3_INCLUDE_DIR=C:\projects\eigen-eigen-b3f3d4950030 -BUILD_TEST=OFF -G "Visual Studio 15 2017 Win64" .
+    - cmake -DBUILD_DOC=OFF -DBUILD_DEMO=ON -BUILD_BENCH=OFF -D Eigen3_DIR=C:\projects\eigen-eigen-b3f3d4950030\cmake EIGEN3_INCLUDE_DIR=C:\projects\eigen-eigen-b3f3d4950030\cmake -BUILD_TEST=OFF -G "Visual Studio 15 2017 Win64" .
     - cd %APPVEYOR_BUILD_FOLDER%
     - dir
     - cd Examples
