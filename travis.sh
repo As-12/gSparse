@@ -1,6 +1,7 @@
 #!/usr/bin/env sh
 set -evx
-
+pwd
+ls
 mkdir build || true
 cd build
 cmake -DBUILD_DOC=OFF \

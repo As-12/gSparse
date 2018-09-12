@@ -36,7 +36,7 @@ TEST(GraphCSVReader, ReadAll)
 	gSparse::GraphCSVReader csvReader("test-edges.csv", "test-weight.csv", " ");
 
 	//Loading Test Data
-	gSparse::EdgeMatrix  Edges;cte
+	gSparse::EdgeMatrix  Edges;
 	gSparse::PrecisionRowMatrix  Weight;
 	csvReader.Read(Edges, Weight);
 	
