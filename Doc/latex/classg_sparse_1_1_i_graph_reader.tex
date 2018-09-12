@@ -1,0 +1,62 @@
+\hypertarget{classg_sparse_1_1_i_graph_reader}{}\section{g\+Sparse\+:\+:I\+Graph\+Reader Class Reference}
+\label{classg_sparse_1_1_i_graph_reader}\index{g\+Sparse\+::\+I\+Graph\+Reader@{g\+Sparse\+::\+I\+Graph\+Reader}}
+
+
+An interface class for Graph Input.  
+
+
+
+
+{\ttfamily \#include $<$Graph\+Reader.\+hpp$>$}
+
+Inheritance diagram for g\+Sparse\+:\+:I\+Graph\+Reader\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classg_sparse_1_1_i_graph_reader}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classg_sparse_1_1_i_graph_reader_adc903c78e5b76aebca391b2b07ec81d7}\label{classg_sparse_1_1_i_graph_reader_adc903c78e5b76aebca391b2b07ec81d7}} 
+\mbox{\hyperlink{classg_sparse_1_1_i_graph_reader_adc903c78e5b76aebca391b2b07ec81d7}{I\+Graph\+Reader}} ()=default
+\begin{DoxyCompactList}\small\item\em Default Constructor for \mbox{\hyperlink{classg_sparse_1_1_i_graph_reader}{I\+Graph\+Reader}}. \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{classg_sparse_1_1_i_graph_reader_a42885505f5bdb8136b0d5b386925d1c7}{Read}} (g\+Sparse\+::\+Edge\+Matrix \&Edges, g\+Sparse\+::\+Precision\+Row\+Matrix \&Weights)=0
+\begin{DoxyCompactList}\small\item\em A pure virtual member to read Graph Data by passing two reference for input. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classg_sparse_1_1_i_graph_reader_a03a04fad2268a001b23bcafb5391b894}\label{classg_sparse_1_1_i_graph_reader_a03a04fad2268a001b23bcafb5391b894}} 
+virtual \mbox{\hyperlink{classg_sparse_1_1_i_graph_reader_a03a04fad2268a001b23bcafb5391b894}{$\sim$\+I\+Graph\+Reader}} ()=default
+\begin{DoxyCompactList}\small\item\em Default virtual destructor. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+An interface class for Graph Input. 
+
+This class defines an interface for g\+Sparse\textquotesingle{}s graph reading functionality. New input source should derive from this class. 
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{classg_sparse_1_1_i_graph_reader_a42885505f5bdb8136b0d5b386925d1c7}\label{classg_sparse_1_1_i_graph_reader_a42885505f5bdb8136b0d5b386925d1c7}} 
+\index{g\+Sparse\+::\+I\+Graph\+Reader@{g\+Sparse\+::\+I\+Graph\+Reader}!Read@{Read}}
+\index{Read@{Read}!g\+Sparse\+::\+I\+Graph\+Reader@{g\+Sparse\+::\+I\+Graph\+Reader}}
+\subsubsection{\texorpdfstring{Read()}{Read()}}
+{\footnotesize\ttfamily virtual void g\+Sparse\+::\+I\+Graph\+Reader\+::\+Read (\begin{DoxyParamCaption}\item[{g\+Sparse\+::\+Edge\+Matrix \&}]{Edges,  }\item[{g\+Sparse\+::\+Precision\+Row\+Matrix \&}]{Weights }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+A pure virtual member to read Graph Data by passing two reference for input. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em Edges} & An Eigen Matrix to receive the Edge list. \\
+\hline
+{\em Weights} & An Eigen Matrix to receive the Weight list associated to the Edge list. \\
+\hline
+\end{DoxyParams}
+
+
+Implemented in \mbox{\hyperlink{classg_sparse_1_1_graph_c_s_v_reader_a01218efe45c694d0b721e737e9c53365}{g\+Sparse\+::\+Graph\+C\+S\+V\+Reader}}.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+/\+Users/\+Bomb/\+Documents/\+Project/g\+Sparse/include/g\+Sparse/\+Interface/Graph\+Reader.\+hpp\end{DoxyCompactItemize}

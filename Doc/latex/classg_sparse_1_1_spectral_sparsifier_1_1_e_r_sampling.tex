@@ -1,0 +1,108 @@
+\hypertarget{classg_sparse_1_1_spectral_sparsifier_1_1_e_r_sampling}{}\section{g\+Sparse\+:\+:Spectral\+Sparsifier\+:\+:E\+R\+Sampling Class Reference}
+\label{classg_sparse_1_1_spectral_sparsifier_1_1_e_r_sampling}\index{g\+Sparse\+::\+Spectral\+Sparsifier\+::\+E\+R\+Sampling@{g\+Sparse\+::\+Spectral\+Sparsifier\+::\+E\+R\+Sampling}}
+
+
+A class which performs Spectral Sparsification by Effective Resistance sampling.  
+
+
+
+
+{\ttfamily \#include $<$E\+R\+Sampling.\+hpp$>$}
+
+Inheritance diagram for g\+Sparse\+:\+:Spectral\+Sparsifier\+:\+:E\+R\+Sampling\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classg_sparse_1_1_spectral_sparsifier_1_1_e_r_sampling}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classg_sparse_1_1_spectral_sparsifier_1_1_e_r_sampling_a1ceb48c424600cbe6d315f3f5bad1598}{E\+R\+Sampling}} (const g\+Sparse\+::\+Graph \&graph, double C=4.\+0f, double Epsilon=0.\+3f, g\+Sparse\+::\+Spectral\+Sparsifier\+::\+E\+R\+\_\+\+M\+E\+T\+H\+O\+D\+S E\+R\+Policy=g\+Sparse\+::\+Spectral\+Sparsifier\+::\+A\+P\+P\+R\+O\+X\+I\+M\+A\+T\+E\+\_\+\+E\+R)
+\begin{DoxyCompactList}\small\item\em Write graph data to a C\+SV file specified in the constructor. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classg_sparse_1_1_spectral_sparsifier_1_1_e_r_sampling_a4751e449a9c2fa43b57db6eb703a622d}\label{classg_sparse_1_1_spectral_sparsifier_1_1_e_r_sampling_a4751e449a9c2fa43b57db6eb703a622d}} 
+virtual g\+Sparse\+::\+C\+O\+M\+P\+U\+T\+E\+\_\+\+I\+N\+FO \mbox{\hyperlink{classg_sparse_1_1_spectral_sparsifier_1_1_e_r_sampling_a4751e449a9c2fa43b57db6eb703a622d}{Compute}} ()
+\begin{DoxyCompactList}\small\item\em A pure virtual member to computer sparsifier weight. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classg_sparse_1_1_spectral_sparsifier_1_1_e_r_sampling_a5322f1076777028699d010daa5cd2406}\label{classg_sparse_1_1_spectral_sparsifier_1_1_e_r_sampling_a5322f1076777028699d010daa5cd2406}} 
+virtual g\+Sparse\+::\+Graph \mbox{\hyperlink{classg_sparse_1_1_spectral_sparsifier_1_1_e_r_sampling_a5322f1076777028699d010daa5cd2406}{Get\+Sparsified\+Graph}} ()
+\begin{DoxyCompactList}\small\item\em A pure virtual member to sparsifier a graph. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classg_sparse_1_1_spectral_sparsifier_1_1_e_r_sampling_a35cf40021c7fa90b5dda042896691bff}\label{classg_sparse_1_1_spectral_sparsifier_1_1_e_r_sampling_a35cf40021c7fa90b5dda042896691bff}} 
+void {\bfseries Set\+E\+R\+Policy} (E\+R\+\_\+\+M\+E\+T\+H\+O\+DS policy)
+\item 
+\mbox{\Hypertarget{classg_sparse_1_1_spectral_sparsifier_1_1_e_r_sampling_a35bf03bbda2e0d37345ce8d460e734a4}\label{classg_sparse_1_1_spectral_sparsifier_1_1_e_r_sampling_a35bf03bbda2e0d37345ce8d460e734a4}} 
+void {\bfseries SetC} (double C)
+\item 
+\mbox{\Hypertarget{classg_sparse_1_1_spectral_sparsifier_1_1_e_r_sampling_a57eceac9af3b8846c3370eca999a9a57}\label{classg_sparse_1_1_spectral_sparsifier_1_1_e_r_sampling_a57eceac9af3b8846c3370eca999a9a57}} 
+void {\bfseries Set\+Epsilon} (double Epsilon)
+\item 
+\mbox{\Hypertarget{classg_sparse_1_1_spectral_sparsifier_1_1_e_r_sampling_abd617a6dacb79fda563caf6509972667}\label{classg_sparse_1_1_spectral_sparsifier_1_1_e_r_sampling_abd617a6dacb79fda563caf6509972667}} 
+double {\bfseries GetC} () const
+\item 
+\mbox{\Hypertarget{classg_sparse_1_1_spectral_sparsifier_1_1_e_r_sampling_a57a513740f9eff3113b518132c60cb0a}\label{classg_sparse_1_1_spectral_sparsifier_1_1_e_r_sampling_a57a513740f9eff3113b518132c60cb0a}} 
+double {\bfseries Get\+Epsilon} () const
+\item 
+\mbox{\Hypertarget{classg_sparse_1_1_spectral_sparsifier_1_1_e_r_sampling_a9db84943ae4c2ff370ef59bcdc5c255c}\label{classg_sparse_1_1_spectral_sparsifier_1_1_e_r_sampling_a9db84943ae4c2ff370ef59bcdc5c255c}} 
+g\+Sparse\+::\+Spectral\+Sparsifier\+::\+E\+R\+\_\+\+M\+E\+T\+H\+O\+DS {\bfseries Get\+E\+R\+Policy} () const
+\item 
+\mbox{\Hypertarget{classg_sparse_1_1_spectral_sparsifier_1_1_e_r_sampling_a898a55838f700015cdfa999b2b0fabe8}\label{classg_sparse_1_1_spectral_sparsifier_1_1_e_r_sampling_a898a55838f700015cdfa999b2b0fabe8}} 
+g\+Sparse\+::\+C\+O\+M\+P\+U\+T\+E\+\_\+\+I\+N\+FO \mbox{\hyperlink{classg_sparse_1_1_spectral_sparsifier_1_1_e_r_sampling_a898a55838f700015cdfa999b2b0fabe8}{Get\+Info}} () const
+\begin{DoxyCompactList}\small\item\em A pure virtual member to get computation status of Sparsifier. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classg_sparse_1_1_spectral_sparsifier_1_1_e_r_sampling_a4b0ef0dc57feea2b927c86d1cd422273}\label{classg_sparse_1_1_spectral_sparsifier_1_1_e_r_sampling_a4b0ef0dc57feea2b927c86d1cd422273}} 
+const g\+Sparse\+::\+Precision\+Row\+Matrix \& {\bfseries Get\+Effective\+Resistance} () const
+\end{DoxyCompactItemize}
+\subsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classg_sparse_1_1_spectral_sparsifier_1_1_e_r_sampling_a0ed4651553939cedd57e217719ce5a81}\label{classg_sparse_1_1_spectral_sparsifier_1_1_e_r_sampling_a0ed4651553939cedd57e217719ce5a81}} 
+double \mbox{\hyperlink{classg_sparse_1_1_spectral_sparsifier_1_1_e_r_sampling_a0ed4651553939cedd57e217719ce5a81}{\+\_\+c}}
+\begin{DoxyCompactList}\small\item\em C-\/hyper parameter. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classg_sparse_1_1_spectral_sparsifier_1_1_e_r_sampling_acd8735c70eabe432edefde7ca0c13d19}\label{classg_sparse_1_1_spectral_sparsifier_1_1_e_r_sampling_acd8735c70eabe432edefde7ca0c13d19}} 
+double \mbox{\hyperlink{classg_sparse_1_1_spectral_sparsifier_1_1_e_r_sampling_acd8735c70eabe432edefde7ca0c13d19}{\+\_\+eps}}
+\begin{DoxyCompactList}\small\item\em epsilon hyper-\/parameter. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classg_sparse_1_1_spectral_sparsifier_1_1_e_r_sampling_a311f71d4fba0c038b1f2e751859c1a5f}\label{classg_sparse_1_1_spectral_sparsifier_1_1_e_r_sampling_a311f71d4fba0c038b1f2e751859c1a5f}} 
+g\+Sparse\+::\+C\+O\+M\+P\+U\+T\+E\+\_\+\+I\+N\+FO \mbox{\hyperlink{classg_sparse_1_1_spectral_sparsifier_1_1_e_r_sampling_a311f71d4fba0c038b1f2e751859c1a5f}{\+\_\+compute\+Info}}
+\begin{DoxyCompactList}\small\item\em Status of sparsifier. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classg_sparse_1_1_spectral_sparsifier_1_1_e_r_sampling_ae6a16bbd5a376677ebddc0c657c0da14}\label{classg_sparse_1_1_spectral_sparsifier_1_1_e_r_sampling_ae6a16bbd5a376677ebddc0c657c0da14}} 
+g\+Sparse\+::\+Graph \mbox{\hyperlink{classg_sparse_1_1_spectral_sparsifier_1_1_e_r_sampling_ae6a16bbd5a376677ebddc0c657c0da14}{\+\_\+graph}}
+\begin{DoxyCompactList}\small\item\em Graph to Sparsify. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classg_sparse_1_1_spectral_sparsifier_1_1_e_r_sampling_a54a2bc9c9dfda467a946c64afcfc46fc}\label{classg_sparse_1_1_spectral_sparsifier_1_1_e_r_sampling_a54a2bc9c9dfda467a946c64afcfc46fc}} 
+g\+Sparse\+::\+Precision\+Row\+Matrix \mbox{\hyperlink{classg_sparse_1_1_spectral_sparsifier_1_1_e_r_sampling_a54a2bc9c9dfda467a946c64afcfc46fc}{\+\_\+er}}
+\begin{DoxyCompactList}\small\item\em Effective Resistance. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classg_sparse_1_1_spectral_sparsifier_1_1_e_r_sampling_aa6ab4a22339f9846fabc82437dced6f2}\label{classg_sparse_1_1_spectral_sparsifier_1_1_e_r_sampling_aa6ab4a22339f9846fabc82437dced6f2}} 
+g\+Sparse\+::\+Effective\+Resistance \mbox{\hyperlink{classg_sparse_1_1_spectral_sparsifier_1_1_e_r_sampling_aa6ab4a22339f9846fabc82437dced6f2}{\+\_\+er\+Calculator}}
+\begin{DoxyCompactList}\small\item\em Effective\+Resistance Calculation Policy. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classg_sparse_1_1_spectral_sparsifier_1_1_e_r_sampling_a26b6aebe0adb1851149c74017fdb73e0}\label{classg_sparse_1_1_spectral_sparsifier_1_1_e_r_sampling_a26b6aebe0adb1851149c74017fdb73e0}} 
+g\+Sparse\+::\+Spectral\+Sparsifier\+::\+E\+R\+\_\+\+M\+E\+T\+H\+O\+DS {\bfseries \+\_\+er\+Policy}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+A class which performs Spectral Sparsification by Effective Resistance sampling. 
+
+Spectral Sparsifier aims to preserve the eigen values of the graph. This class approximate effective weight resistance of the graph, then generate a O(m log m) sparsifier with probability porportional to the effective weight resistance. m represents the edge of the densed graph.
+
+Original paper \href{https://arxiv.org/pdf/0803.0929.pdf}{\tt https\+://arxiv.\+org/pdf/0803.\+0929.\+pdf} 
+
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classg_sparse_1_1_spectral_sparsifier_1_1_e_r_sampling_a1ceb48c424600cbe6d315f3f5bad1598}\label{classg_sparse_1_1_spectral_sparsifier_1_1_e_r_sampling_a1ceb48c424600cbe6d315f3f5bad1598}} 
+\index{g\+Sparse\+::\+Spectral\+Sparsifier\+::\+E\+R\+Sampling@{g\+Sparse\+::\+Spectral\+Sparsifier\+::\+E\+R\+Sampling}!E\+R\+Sampling@{E\+R\+Sampling}}
+\index{E\+R\+Sampling@{E\+R\+Sampling}!g\+Sparse\+::\+Spectral\+Sparsifier\+::\+E\+R\+Sampling@{g\+Sparse\+::\+Spectral\+Sparsifier\+::\+E\+R\+Sampling}}
+\subsubsection{\texorpdfstring{E\+R\+Sampling()}{ERSampling()}}
+{\footnotesize\ttfamily g\+Sparse\+::\+Spectral\+Sparsifier\+::\+E\+R\+Sampling\+::\+E\+R\+Sampling (\begin{DoxyParamCaption}\item[{const g\+Sparse\+::\+Graph \&}]{graph,  }\item[{double}]{C = {\ttfamily 4.0f},  }\item[{double}]{Epsilon = {\ttfamily 0.3f},  }\item[{g\+Sparse\+::\+Spectral\+Sparsifier\+::\+E\+R\+\_\+\+M\+E\+T\+H\+O\+DS}]{E\+R\+Policy = {\ttfamily gSparse\+:\+:SpectralSparsifier\+:\+:APPROXIMATE\+\_\+ER} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Write graph data to a C\+SV file specified in the constructor. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em Edges} & An edge list to be written to a C\+SV file \\
+\hline
+{\em Weights} & A weight list to be written to a C\+SV file \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+/\+Users/\+Bomb/\+Documents/\+Project/g\+Sparse/include/g\+Sparse/\+Spectral\+Sparsifier/E\+R\+Sampling.\+hpp\end{DoxyCompactItemize}

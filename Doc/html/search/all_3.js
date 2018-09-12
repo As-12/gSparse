@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['qtstyle_5ftest',['QTstyle_Test',['../class_library_1_1v1_1_1_q_tstyle___test.html',1,'Library::v1::QTstyle_Test'],['../class_library_1_1v1_1_1_q_tstyle___test.html#ae7bab88d8f1eaa93d8e39f2e1f06b00e',1,'Library::v1::QTstyle_Test::QTstyle_Test()']]]
+  ['ersampling',['ERSampling',['../classg_sparse_1_1_spectral_sparsifier_1_1_e_r_sampling.html',1,'gSparse::SpectralSparsifier::ERSampling'],['../classg_sparse_1_1_spectral_sparsifier_1_1_e_r_sampling.html#a1ceb48c424600cbe6d315f3f5bad1598',1,'gSparse::SpectralSparsifier::ERSampling::ERSampling()']]],
+  ['exacterjacobicg',['ExactERJacobiCG',['../classg_sparse_1_1_e_r_1_1_policy_1_1_exact_e_r_jacobi_c_g.html',1,'gSparse::ER::Policy']]]
 ];

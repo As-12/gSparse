@@ -1,0 +1,104 @@
+\hypertarget{classg_sparse_1_1_i_graph_writer}{}\section{g\+Sparse\+:\+:I\+Graph\+Writer Class Reference}
+\label{classg_sparse_1_1_i_graph_writer}\index{g\+Sparse\+::\+I\+Graph\+Writer@{g\+Sparse\+::\+I\+Graph\+Writer}}
+
+
+An interface class for Graph Output.  
+
+
+
+
+{\ttfamily \#include $<$Graph\+Writer.\+hpp$>$}
+
+Inheritance diagram for g\+Sparse\+:\+:I\+Graph\+Writer\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classg_sparse_1_1_i_graph_writer}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classg_sparse_1_1_i_graph_writer_a05a22eb501d282bc3617e034ac6ce2af}\label{classg_sparse_1_1_i_graph_writer_a05a22eb501d282bc3617e034ac6ce2af}} 
+\mbox{\hyperlink{classg_sparse_1_1_i_graph_writer_a05a22eb501d282bc3617e034ac6ce2af}{I\+Graph\+Writer}} ()=default
+\begin{DoxyCompactList}\small\item\em Default Constructor for \mbox{\hyperlink{classg_sparse_1_1_i_graph_writer}{I\+Graph\+Writer}}. \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{classg_sparse_1_1_i_graph_writer_a24a0956558888343c5e56a3c39b138af}{Write}} (const g\+Sparse\+::\+Graph \&graph)=0
+\begin{DoxyCompactList}\small\item\em A pure virtual member write Graph Data by passing an \mbox{\hyperlink{classg_sparse_1_1_i_graph}{I\+Graph}} object. \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{classg_sparse_1_1_i_graph_writer_aa778df52e1595439d724fc873a8dfb52}{Write}} (const g\+Sparse\+::\+Edge\+Matrix \&Edges)=0
+\begin{DoxyCompactList}\small\item\em A pure virtual member write Graph Data by passing Edge List. \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{classg_sparse_1_1_i_graph_writer_ae2c720f3e37629da40fdc5d0e4fe2dd2}{Write}} (const g\+Sparse\+::\+Edge\+Matrix \&Edges, const g\+Sparse\+::\+Precision\+Row\+Matrix \&Weights)=0
+\begin{DoxyCompactList}\small\item\em A pure virtual member write read Graph Data by passing an Edge and a Weight Lists. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classg_sparse_1_1_i_graph_writer_a7c29459ba96e82fec35b1a71a8d79e05}\label{classg_sparse_1_1_i_graph_writer_a7c29459ba96e82fec35b1a71a8d79e05}} 
+virtual \mbox{\hyperlink{classg_sparse_1_1_i_graph_writer_a7c29459ba96e82fec35b1a71a8d79e05}{$\sim$\+I\+Graph\+Writer}} ()=default
+\begin{DoxyCompactList}\small\item\em Default Constructor for \mbox{\hyperlink{classg_sparse_1_1_i_graph_writer}{I\+Graph\+Writer}}. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+An interface class for Graph Output. 
+
+This class defines an interface for g\+Sparse\textquotesingle{}s graph writing functionality. New output source should derive this function. 
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{classg_sparse_1_1_i_graph_writer_a24a0956558888343c5e56a3c39b138af}\label{classg_sparse_1_1_i_graph_writer_a24a0956558888343c5e56a3c39b138af}} 
+\index{g\+Sparse\+::\+I\+Graph\+Writer@{g\+Sparse\+::\+I\+Graph\+Writer}!Write@{Write}}
+\index{Write@{Write}!g\+Sparse\+::\+I\+Graph\+Writer@{g\+Sparse\+::\+I\+Graph\+Writer}}
+\subsubsection{\texorpdfstring{Write()}{Write()}\hspace{0.1cm}{\footnotesize\ttfamily [1/3]}}
+{\footnotesize\ttfamily virtual void g\+Sparse\+::\+I\+Graph\+Writer\+::\+Write (\begin{DoxyParamCaption}\item[{const g\+Sparse\+::\+Graph \&}]{graph }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+A pure virtual member write Graph Data by passing an \mbox{\hyperlink{classg_sparse_1_1_i_graph}{I\+Graph}} object. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em graph} & A shared\+\_\+ptr of an \mbox{\hyperlink{classg_sparse_1_1_i_graph}{I\+Graph}} Object \\
+\hline
+\end{DoxyParams}
+
+
+Implemented in \mbox{\hyperlink{classg_sparse_1_1_graph_c_s_v_writer_a588c4bf47ee70bb72079ac7d6f843c2d}{g\+Sparse\+::\+Graph\+C\+S\+V\+Writer}}.
+
+\mbox{\Hypertarget{classg_sparse_1_1_i_graph_writer_aa778df52e1595439d724fc873a8dfb52}\label{classg_sparse_1_1_i_graph_writer_aa778df52e1595439d724fc873a8dfb52}} 
+\index{g\+Sparse\+::\+I\+Graph\+Writer@{g\+Sparse\+::\+I\+Graph\+Writer}!Write@{Write}}
+\index{Write@{Write}!g\+Sparse\+::\+I\+Graph\+Writer@{g\+Sparse\+::\+I\+Graph\+Writer}}
+\subsubsection{\texorpdfstring{Write()}{Write()}\hspace{0.1cm}{\footnotesize\ttfamily [2/3]}}
+{\footnotesize\ttfamily virtual void g\+Sparse\+::\+I\+Graph\+Writer\+::\+Write (\begin{DoxyParamCaption}\item[{const g\+Sparse\+::\+Edge\+Matrix \&}]{Edges }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+A pure virtual member write Graph Data by passing Edge List. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em Edges} & An Eigen Matrix representings Graph Edges. \\
+\hline
+\end{DoxyParams}
+
+
+Implemented in \mbox{\hyperlink{classg_sparse_1_1_graph_c_s_v_writer_a83598d104e12327bf819928239e18ca3}{g\+Sparse\+::\+Graph\+C\+S\+V\+Writer}}.
+
+\mbox{\Hypertarget{classg_sparse_1_1_i_graph_writer_ae2c720f3e37629da40fdc5d0e4fe2dd2}\label{classg_sparse_1_1_i_graph_writer_ae2c720f3e37629da40fdc5d0e4fe2dd2}} 
+\index{g\+Sparse\+::\+I\+Graph\+Writer@{g\+Sparse\+::\+I\+Graph\+Writer}!Write@{Write}}
+\index{Write@{Write}!g\+Sparse\+::\+I\+Graph\+Writer@{g\+Sparse\+::\+I\+Graph\+Writer}}
+\subsubsection{\texorpdfstring{Write()}{Write()}\hspace{0.1cm}{\footnotesize\ttfamily [3/3]}}
+{\footnotesize\ttfamily virtual void g\+Sparse\+::\+I\+Graph\+Writer\+::\+Write (\begin{DoxyParamCaption}\item[{const g\+Sparse\+::\+Edge\+Matrix \&}]{Edges,  }\item[{const g\+Sparse\+::\+Precision\+Row\+Matrix \&}]{Weights }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+A pure virtual member write read Graph Data by passing an Edge and a Weight Lists. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em Edges} & An Eigen Matrix of Graph\textquotesingle{}s Edges. \\
+\hline
+{\em Weights} & An Eigen Matrix of Graph\textquotesingle{}s Weight. \\
+\hline
+\end{DoxyParams}
+
+
+Implemented in \mbox{\hyperlink{classg_sparse_1_1_graph_c_s_v_writer_a66e9fe4e8887abca81d6d0090b217950}{g\+Sparse\+::\+Graph\+C\+S\+V\+Writer}}.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+/\+Users/\+Bomb/\+Documents/\+Project/g\+Sparse/include/g\+Sparse/\+Interface/Graph\+Writer.\+hpp\end{DoxyCompactItemize}

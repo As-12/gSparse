@@ -1,0 +1,150 @@
+\hypertarget{classg_sparse_1_1_undirected_graph}{}\section{g\+Sparse\+:\+:Undirected\+Graph Class Reference}
+\label{classg_sparse_1_1_undirected_graph}\index{g\+Sparse\+::\+Undirected\+Graph@{g\+Sparse\+::\+Undirected\+Graph}}
+
+
+An Undirected Graph class.  
+
+
+
+
+{\ttfamily \#include $<$Undirected\+Graph.\+hpp$>$}
+
+Inheritance diagram for g\+Sparse\+:\+:Undirected\+Graph\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classg_sparse_1_1_undirected_graph}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classg_sparse_1_1_undirected_graph_a2e8177317d83d7a468c4abd69dcf3bb1}\label{classg_sparse_1_1_undirected_graph_a2e8177317d83d7a468c4abd69dcf3bb1}} 
+\mbox{\hyperlink{classg_sparse_1_1_undirected_graph_a2e8177317d83d7a468c4abd69dcf3bb1}{Undirected\+Graph}} (const \mbox{\hyperlink{classg_sparse_1_1_undirected_graph}{Undirected\+Graph}} \&graph)=delete
+\begin{DoxyCompactList}\small\item\em Graph data type should not be copied by value. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classg_sparse_1_1_undirected_graph_a1861d653adafc04d227819603de7e446}\label{classg_sparse_1_1_undirected_graph_a1861d653adafc04d227819603de7e446}} 
+\mbox{\hyperlink{classg_sparse_1_1_undirected_graph}{Undirected\+Graph}} \& \mbox{\hyperlink{classg_sparse_1_1_undirected_graph_a1861d653adafc04d227819603de7e446}{operator=}} (const \mbox{\hyperlink{classg_sparse_1_1_undirected_graph}{Undirected\+Graph}} \&rhs)=delete
+\begin{DoxyCompactList}\small\item\em Graph data type should not be copied by value / reassigne due to Eigen data type. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classg_sparse_1_1_undirected_graph_a3f87a642cb86f46a6a53434598cc1674}{Undirected\+Graph}} (const g\+Sparse\+::\+Graph\+Reader \&Data\+Reader)
+\begin{DoxyCompactList}\small\item\em A constructor to initialize graph based on Graph\+Reader. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classg_sparse_1_1_undirected_graph_ad9dcd1dd5a47a1f35ee019a007e3cc40}{Undirected\+Graph}} (const g\+Sparse\+::\+Edge\+Matrix \&Edges)
+\begin{DoxyCompactList}\small\item\em A constructor to initialize graph based from Edge data. Weight sets to one. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classg_sparse_1_1_undirected_graph_af9609f1e66af95a0bf201a1185394421}{Undirected\+Graph}} (const g\+Sparse\+::\+Edge\+Matrix \&Edges, const g\+Sparse\+::\+Precision\+Row\+Matrix \&Weights)
+\begin{DoxyCompactList}\small\item\em A constructor to initialize graph based from Edge data. Weight sets to one. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classg_sparse_1_1_undirected_graph_a7da2614a0e2d08d0db333b33805653a5}\label{classg_sparse_1_1_undirected_graph_a7da2614a0e2d08d0db333b33805653a5}} 
+virtual const g\+Sparse\+::\+Sparse\+Precision\+Matrix \& \mbox{\hyperlink{classg_sparse_1_1_undirected_graph_a7da2614a0e2d08d0db333b33805653a5}{Get\+Adjacent\+Matrix}} () const
+\begin{DoxyCompactList}\small\item\em Return Graph\textquotesingle{}s Adjancency Matrix. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classg_sparse_1_1_undirected_graph_a27df92e35ec3268554cf90b8d338e239}\label{classg_sparse_1_1_undirected_graph_a27df92e35ec3268554cf90b8d338e239}} 
+virtual const g\+Sparse\+::\+Sparse\+Precision\+Matrix \& \mbox{\hyperlink{classg_sparse_1_1_undirected_graph_a27df92e35ec3268554cf90b8d338e239}{Get\+Incident\+Matrix}} () const
+\begin{DoxyCompactList}\small\item\em Return Graph\textquotesingle{}s Incident Matrix. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classg_sparse_1_1_undirected_graph_a5d4e1c4a7954d963042e07f59148bda8}\label{classg_sparse_1_1_undirected_graph_a5d4e1c4a7954d963042e07f59148bda8}} 
+virtual const g\+Sparse\+::\+Sparse\+Precision\+Matrix \& \mbox{\hyperlink{classg_sparse_1_1_undirected_graph_a5d4e1c4a7954d963042e07f59148bda8}{Get\+Degree\+Matrix}} () const
+\begin{DoxyCompactList}\small\item\em Return Graph\textquotesingle{}s Degree Matrix. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classg_sparse_1_1_undirected_graph_a0cc819ed304d93041444ae34dd70c4ca}\label{classg_sparse_1_1_undirected_graph_a0cc819ed304d93041444ae34dd70c4ca}} 
+virtual const g\+Sparse\+::\+Sparse\+Precision\+Matrix \& \mbox{\hyperlink{classg_sparse_1_1_undirected_graph_a0cc819ed304d93041444ae34dd70c4ca}{Get\+Weight\+Matrix}} () const
+\begin{DoxyCompactList}\small\item\em Return Graph\textquotesingle{}s Weight Matrix. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classg_sparse_1_1_undirected_graph_a6587d7e4e37961469f26b1d5f9ae66cc}\label{classg_sparse_1_1_undirected_graph_a6587d7e4e37961469f26b1d5f9ae66cc}} 
+virtual const g\+Sparse\+::\+Sparse\+Precision\+Matrix \& \mbox{\hyperlink{classg_sparse_1_1_undirected_graph_a6587d7e4e37961469f26b1d5f9ae66cc}{Get\+Laplacian\+Matrix}} () const
+\begin{DoxyCompactList}\small\item\em Return Graph\textquotesingle{}s Laplacian Matrix. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classg_sparse_1_1_undirected_graph_a1e895346411557dc8a52843c279bddee}\label{classg_sparse_1_1_undirected_graph_a1e895346411557dc8a52843c279bddee}} 
+virtual const g\+Sparse\+::\+Edge\+Matrix \& \mbox{\hyperlink{classg_sparse_1_1_undirected_graph_a1e895346411557dc8a52843c279bddee}{Get\+Edge\+List}} () const
+\begin{DoxyCompactList}\small\item\em Return Graph\textquotesingle{}s Edge List Matrix. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classg_sparse_1_1_undirected_graph_a61a27ee51b72dc55ec3699222108af73}\label{classg_sparse_1_1_undirected_graph_a61a27ee51b72dc55ec3699222108af73}} 
+virtual const g\+Sparse\+::\+Precision\+Row\+Matrix \& \mbox{\hyperlink{classg_sparse_1_1_undirected_graph_a61a27ee51b72dc55ec3699222108af73}{Get\+Weight\+List}} () const
+\begin{DoxyCompactList}\small\item\em Return Graph\textquotesingle{}s Weight List Matrix. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classg_sparse_1_1_undirected_graph_a31402a2e8a8de8392720ed65a5ebb704}\label{classg_sparse_1_1_undirected_graph_a31402a2e8a8de8392720ed65a5ebb704}} 
+virtual std\+::size\+\_\+t \mbox{\hyperlink{classg_sparse_1_1_undirected_graph_a31402a2e8a8de8392720ed65a5ebb704}{Get\+Edge\+Count}} () const
+\begin{DoxyCompactList}\small\item\em Return the number of Edges in the Graph. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classg_sparse_1_1_undirected_graph_abd69914de28b291a6e454b39359eedc3}\label{classg_sparse_1_1_undirected_graph_abd69914de28b291a6e454b39359eedc3}} 
+virtual std\+::size\+\_\+t \mbox{\hyperlink{classg_sparse_1_1_undirected_graph_abd69914de28b291a6e454b39359eedc3}{Get\+Node\+Count}} () const
+\begin{DoxyCompactList}\small\item\em Return the number of Nodes in the Graph. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classg_sparse_1_1_undirected_graph_ae1365f68c3d3432e0bd538e1355be667}\label{classg_sparse_1_1_undirected_graph_ae1365f68c3d3432e0bd538e1355be667}} 
+g\+Sparse\+::\+Sparse\+Precision\+Matrix \mbox{\hyperlink{classg_sparse_1_1_undirected_graph_ae1365f68c3d3432e0bd538e1355be667}{\+\_\+adj\+Matrix}}
+\begin{DoxyCompactList}\small\item\em adjacency matrix representation \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classg_sparse_1_1_undirected_graph_a4633cf520000c5aa4640768d0321cc4c}\label{classg_sparse_1_1_undirected_graph_a4633cf520000c5aa4640768d0321cc4c}} 
+g\+Sparse\+::\+Sparse\+Precision\+Matrix \mbox{\hyperlink{classg_sparse_1_1_undirected_graph_a4633cf520000c5aa4640768d0321cc4c}{\+\_\+deg\+Matrix}}
+\begin{DoxyCompactList}\small\item\em degree matrix representation \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classg_sparse_1_1_undirected_graph_a5b666ae29ef80014ca85ca9bbde83727}\label{classg_sparse_1_1_undirected_graph_a5b666ae29ef80014ca85ca9bbde83727}} 
+g\+Sparse\+::\+Sparse\+Precision\+Matrix \mbox{\hyperlink{classg_sparse_1_1_undirected_graph_a5b666ae29ef80014ca85ca9bbde83727}{\+\_\+incident\+Matrix}}
+\begin{DoxyCompactList}\small\item\em incident matrix representation \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classg_sparse_1_1_undirected_graph_ae84602486ec10f1c09721417e85afcb0}\label{classg_sparse_1_1_undirected_graph_ae84602486ec10f1c09721417e85afcb0}} 
+g\+Sparse\+::\+Sparse\+Precision\+Matrix \mbox{\hyperlink{classg_sparse_1_1_undirected_graph_ae84602486ec10f1c09721417e85afcb0}{\+\_\+weight\+Matrix}}
+\begin{DoxyCompactList}\small\item\em weight matrix representation \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classg_sparse_1_1_undirected_graph_aafd3eaa27352e7f6f282e788717c2db3}\label{classg_sparse_1_1_undirected_graph_aafd3eaa27352e7f6f282e788717c2db3}} 
+g\+Sparse\+::\+Sparse\+Precision\+Matrix \mbox{\hyperlink{classg_sparse_1_1_undirected_graph_aafd3eaa27352e7f6f282e788717c2db3}{\+\_\+laplacian\+Matrix}}
+\begin{DoxyCompactList}\small\item\em laplacian matrix representation \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classg_sparse_1_1_undirected_graph_a19665449e89f16fc75cdee3c165f3c47}\label{classg_sparse_1_1_undirected_graph_a19665449e89f16fc75cdee3c165f3c47}} 
+g\+Sparse\+::\+Edge\+Matrix \mbox{\hyperlink{classg_sparse_1_1_undirected_graph_a19665449e89f16fc75cdee3c165f3c47}{\+\_\+edges}}
+\begin{DoxyCompactList}\small\item\em edge list \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classg_sparse_1_1_undirected_graph_a89a63f601898c7bf5342632a919ce4a4}\label{classg_sparse_1_1_undirected_graph_a89a63f601898c7bf5342632a919ce4a4}} 
+g\+Sparse\+::\+Precision\+Row\+Matrix \mbox{\hyperlink{classg_sparse_1_1_undirected_graph_a89a63f601898c7bf5342632a919ce4a4}{\+\_\+weights}}
+\begin{DoxyCompactList}\small\item\em weight list \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classg_sparse_1_1_undirected_graph_ab10bc8ab3defed1dae0ecf2438d1022e}\label{classg_sparse_1_1_undirected_graph_ab10bc8ab3defed1dae0ecf2438d1022e}} 
+std\+::size\+\_\+t \mbox{\hyperlink{classg_sparse_1_1_undirected_graph_ab10bc8ab3defed1dae0ecf2438d1022e}{\+\_\+edge\+Count}}
+\begin{DoxyCompactList}\small\item\em count of edges \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classg_sparse_1_1_undirected_graph_a800146dca9f76f0b55a2f4e19d7016fc}\label{classg_sparse_1_1_undirected_graph_a800146dca9f76f0b55a2f4e19d7016fc}} 
+std\+::size\+\_\+t \mbox{\hyperlink{classg_sparse_1_1_undirected_graph_a800146dca9f76f0b55a2f4e19d7016fc}{\+\_\+node\+Count}}
+\begin{DoxyCompactList}\small\item\em number of vertices \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Additional Inherited Members}
+
+
+\subsection{Detailed Description}
+An Undirected Graph class. 
+
+This class provides a multiple representation of an Undirected, Simple graph. 
+
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classg_sparse_1_1_undirected_graph_a3f87a642cb86f46a6a53434598cc1674}\label{classg_sparse_1_1_undirected_graph_a3f87a642cb86f46a6a53434598cc1674}} 
+\index{g\+Sparse\+::\+Undirected\+Graph@{g\+Sparse\+::\+Undirected\+Graph}!Undirected\+Graph@{Undirected\+Graph}}
+\index{Undirected\+Graph@{Undirected\+Graph}!g\+Sparse\+::\+Undirected\+Graph@{g\+Sparse\+::\+Undirected\+Graph}}
+\subsubsection{\texorpdfstring{Undirected\+Graph()}{UndirectedGraph()}\hspace{0.1cm}{\footnotesize\ttfamily [1/3]}}
+{\footnotesize\ttfamily g\+Sparse\+::\+Undirected\+Graph\+::\+Undirected\+Graph (\begin{DoxyParamCaption}\item[{const g\+Sparse\+::\+Graph\+Reader \&}]{Data\+Reader }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+A constructor to initialize graph based on Graph\+Reader. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em Data\+Reader} & A subclass of \mbox{\hyperlink{classg_sparse_1_1_i_graph_reader}{I\+Graph\+Reader}} which provides an interface to read external data. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classg_sparse_1_1_undirected_graph_ad9dcd1dd5a47a1f35ee019a007e3cc40}\label{classg_sparse_1_1_undirected_graph_ad9dcd1dd5a47a1f35ee019a007e3cc40}} 
+\index{g\+Sparse\+::\+Undirected\+Graph@{g\+Sparse\+::\+Undirected\+Graph}!Undirected\+Graph@{Undirected\+Graph}}
+\index{Undirected\+Graph@{Undirected\+Graph}!g\+Sparse\+::\+Undirected\+Graph@{g\+Sparse\+::\+Undirected\+Graph}}
+\subsubsection{\texorpdfstring{Undirected\+Graph()}{UndirectedGraph()}\hspace{0.1cm}{\footnotesize\ttfamily [2/3]}}
+{\footnotesize\ttfamily g\+Sparse\+::\+Undirected\+Graph\+::\+Undirected\+Graph (\begin{DoxyParamCaption}\item[{const g\+Sparse\+::\+Edge\+Matrix \&}]{Edges }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+A constructor to initialize graph based from Edge data. Weight sets to one. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em Edges} & An Eigen Matrix containing Edge List. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classg_sparse_1_1_undirected_graph_af9609f1e66af95a0bf201a1185394421}\label{classg_sparse_1_1_undirected_graph_af9609f1e66af95a0bf201a1185394421}} 
+\index{g\+Sparse\+::\+Undirected\+Graph@{g\+Sparse\+::\+Undirected\+Graph}!Undirected\+Graph@{Undirected\+Graph}}
+\index{Undirected\+Graph@{Undirected\+Graph}!g\+Sparse\+::\+Undirected\+Graph@{g\+Sparse\+::\+Undirected\+Graph}}
+\subsubsection{\texorpdfstring{Undirected\+Graph()}{UndirectedGraph()}\hspace{0.1cm}{\footnotesize\ttfamily [3/3]}}
+{\footnotesize\ttfamily g\+Sparse\+::\+Undirected\+Graph\+::\+Undirected\+Graph (\begin{DoxyParamCaption}\item[{const g\+Sparse\+::\+Edge\+Matrix \&}]{Edges,  }\item[{const g\+Sparse\+::\+Precision\+Row\+Matrix \&}]{Weights }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+A constructor to initialize graph based from Edge data. Weight sets to one. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em Edges} & An Eigen Matrix containing Edge List. \\
+\hline
+{\em Weights} & An Eigen Matrix containing associated Weights. \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+/\+Users/\+Bomb/\+Documents/\+Project/g\+Sparse/include/g\+Sparse/Undirected\+Graph.\+hpp\end{DoxyCompactItemize}

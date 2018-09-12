@@ -28,9 +28,12 @@ namespace gSparse
                         Eigen::ConjugateGradient<gSparse::SparsePrecisionMatrix, Eigen::Lower | Eigen::Upper  > cg;
                         cg.setMaxIterations(maxIter);
                         auto b = graph->GetIncidentMatrix().row(i);
-                        auto x = cg.compute(graph->GetLaplacianMatrix()).solve(b.transpose());
+                        cg.compute(graph->GetLaplacianMatrix());
+                        Eigen::VectorXd x = cg.solve(b.transpose());
+                        b.toDense();
                         er(i) = b.toDense() * x;
                     }
+                    
                     return gSparse::SUCCESSFUL;
                 }
             };

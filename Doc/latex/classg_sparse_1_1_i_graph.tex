@@ -1,0 +1,63 @@
+\hypertarget{classg_sparse_1_1_i_graph}{}\section{g\+Sparse\+:\+:I\+Graph Class Reference}
+\label{classg_sparse_1_1_i_graph}\index{g\+Sparse\+::\+I\+Graph@{g\+Sparse\+::\+I\+Graph}}
+
+
+An interface class for Graph object.  
+
+
+
+
+{\ttfamily \#include $<$Graph.\+hpp$>$}
+
+Inheritance diagram for g\+Sparse\+:\+:I\+Graph\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classg_sparse_1_1_i_graph}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classg_sparse_1_1_i_graph_af154d74864aba40ebb121d921090682e}\label{classg_sparse_1_1_i_graph_af154d74864aba40ebb121d921090682e}} 
+virtual const g\+Sparse\+::\+Sparse\+Precision\+Matrix \& \mbox{\hyperlink{classg_sparse_1_1_i_graph_af154d74864aba40ebb121d921090682e}{Get\+Adjacent\+Matrix}} () const =0
+\begin{DoxyCompactList}\small\item\em Pure virtual function to get Graph Adjacency Matrix. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classg_sparse_1_1_i_graph_a2c748303c9f5da63fa5da90a1110633f}\label{classg_sparse_1_1_i_graph_a2c748303c9f5da63fa5da90a1110633f}} 
+virtual const g\+Sparse\+::\+Sparse\+Precision\+Matrix \& \mbox{\hyperlink{classg_sparse_1_1_i_graph_a2c748303c9f5da63fa5da90a1110633f}{Get\+Incident\+Matrix}} () const =0
+\begin{DoxyCompactList}\small\item\em Pure virtual function to get Graph Incident Matrix. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classg_sparse_1_1_i_graph_a24465b20eba67a564b620b21f174da89}\label{classg_sparse_1_1_i_graph_a24465b20eba67a564b620b21f174da89}} 
+virtual const g\+Sparse\+::\+Sparse\+Precision\+Matrix \& \mbox{\hyperlink{classg_sparse_1_1_i_graph_a24465b20eba67a564b620b21f174da89}{Get\+Degree\+Matrix}} () const =0
+\begin{DoxyCompactList}\small\item\em Pure virtual function to get Graph Degree Matrix. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classg_sparse_1_1_i_graph_a861e57ebfe47eb54236e82f8651f398c}\label{classg_sparse_1_1_i_graph_a861e57ebfe47eb54236e82f8651f398c}} 
+virtual const g\+Sparse\+::\+Sparse\+Precision\+Matrix \& \mbox{\hyperlink{classg_sparse_1_1_i_graph_a861e57ebfe47eb54236e82f8651f398c}{Get\+Laplacian\+Matrix}} () const =0
+\begin{DoxyCompactList}\small\item\em Pure virtual function to get Graph Laplacian Matrix. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classg_sparse_1_1_i_graph_aef60a9eb32de1ceb2a62313a54609ac4}\label{classg_sparse_1_1_i_graph_aef60a9eb32de1ceb2a62313a54609ac4}} 
+virtual const g\+Sparse\+::\+Sparse\+Precision\+Matrix \& \mbox{\hyperlink{classg_sparse_1_1_i_graph_aef60a9eb32de1ceb2a62313a54609ac4}{Get\+Weight\+Matrix}} () const =0
+\begin{DoxyCompactList}\small\item\em Pure virtual function to get Graph Weight Matrix. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classg_sparse_1_1_i_graph_ad7bc73bd80951ccb15f391c02a1def23}\label{classg_sparse_1_1_i_graph_ad7bc73bd80951ccb15f391c02a1def23}} 
+virtual const g\+Sparse\+::\+Edge\+Matrix \& \mbox{\hyperlink{classg_sparse_1_1_i_graph_ad7bc73bd80951ccb15f391c02a1def23}{Get\+Edge\+List}} () const =0
+\begin{DoxyCompactList}\small\item\em Pure virtual function to get Graph Edge List Matrix. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classg_sparse_1_1_i_graph_a4230acbf3a86759fe6a5e19c3293adc7}\label{classg_sparse_1_1_i_graph_a4230acbf3a86759fe6a5e19c3293adc7}} 
+virtual const g\+Sparse\+::\+Precision\+Row\+Matrix \& \mbox{\hyperlink{classg_sparse_1_1_i_graph_a4230acbf3a86759fe6a5e19c3293adc7}{Get\+Weight\+List}} () const =0
+\begin{DoxyCompactList}\small\item\em Pure virtual function to get Graph Weight List Matrix. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classg_sparse_1_1_i_graph_a0dc8f4d2283a175876cf8e56a7979e78}\label{classg_sparse_1_1_i_graph_a0dc8f4d2283a175876cf8e56a7979e78}} 
+virtual std\+::size\+\_\+t \mbox{\hyperlink{classg_sparse_1_1_i_graph_a0dc8f4d2283a175876cf8e56a7979e78}{Get\+Edge\+Count}} () const =0
+\begin{DoxyCompactList}\small\item\em Pure virtual function to get number of edges in the graph. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classg_sparse_1_1_i_graph_a810e7c5a7e011f516b4a8ae56fe8ce3b}\label{classg_sparse_1_1_i_graph_a810e7c5a7e011f516b4a8ae56fe8ce3b}} 
+virtual std\+::size\+\_\+t \mbox{\hyperlink{classg_sparse_1_1_i_graph_a810e7c5a7e011f516b4a8ae56fe8ce3b}{Get\+Node\+Count}} () const =0
+\begin{DoxyCompactList}\small\item\em Pure virtual function to get number of nodes in the graph. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classg_sparse_1_1_i_graph_a49f79b460e4166da28dd0f188bd0e34e}\label{classg_sparse_1_1_i_graph_a49f79b460e4166da28dd0f188bd0e34e}} 
+\mbox{\hyperlink{classg_sparse_1_1_i_graph_a49f79b460e4166da28dd0f188bd0e34e}{I\+Graph}} ()=default
+\begin{DoxyCompactList}\small\item\em Protected default constructor. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+An interface class for Graph object. 
+
+This class defines an interface for g\+Sparse\textquotesingle{}s Graph primitives. 
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+/\+Users/\+Bomb/\+Documents/\+Project/g\+Sparse/include/g\+Sparse/\+Interface/Graph.\+hpp\end{DoxyCompactItemize}

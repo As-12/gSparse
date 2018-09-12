@@ -1,0 +1,89 @@
+\hypertarget{classg_sparse_1_1_graph_c_s_v_reader}{}\section{g\+Sparse\+:\+:Graph\+C\+S\+V\+Reader Class Reference}
+\label{classg_sparse_1_1_graph_c_s_v_reader}\index{g\+Sparse\+::\+Graph\+C\+S\+V\+Reader@{g\+Sparse\+::\+Graph\+C\+S\+V\+Reader}}
+
+
+A Graph C\+SV Data Reader.  
+
+
+
+
+{\ttfamily \#include $<$Graph\+C\+S\+V\+Reader.\+hpp$>$}
+
+Inheritance diagram for g\+Sparse\+:\+:Graph\+C\+S\+V\+Reader\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classg_sparse_1_1_graph_c_s_v_reader}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classg_sparse_1_1_graph_c_s_v_reader_ac0609b1dbd62f3425d6108caeeafcea7}\label{classg_sparse_1_1_graph_c_s_v_reader_ac0609b1dbd62f3425d6108caeeafcea7}} 
+\mbox{\hyperlink{classg_sparse_1_1_graph_c_s_v_reader_ac0609b1dbd62f3425d6108caeeafcea7}{Graph\+C\+S\+V\+Reader}} (const \mbox{\hyperlink{classg_sparse_1_1_graph_c_s_v_reader}{Graph\+C\+S\+V\+Reader}} \&csv\+Reader) noexcept
+\begin{DoxyCompactList}\small\item\em A copy Constructor. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classg_sparse_1_1_graph_c_s_v_reader_a9736ef3836d11b7d4cd095b0613410d5}\label{classg_sparse_1_1_graph_c_s_v_reader_a9736ef3836d11b7d4cd095b0613410d5}} 
+\mbox{\hyperlink{classg_sparse_1_1_graph_c_s_v_reader}{Graph\+C\+S\+V\+Reader}} \& \mbox{\hyperlink{classg_sparse_1_1_graph_c_s_v_reader_a9736ef3836d11b7d4cd095b0613410d5}{operator=}} (const \mbox{\hyperlink{classg_sparse_1_1_graph_c_s_v_reader}{Graph\+C\+S\+V\+Reader}} \&csv\+Reader) noexcept
+\begin{DoxyCompactList}\small\item\em A = operator overloaded. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classg_sparse_1_1_graph_c_s_v_reader_a5c95cc40faadeaa36766b05b3b4079d0}{Graph\+C\+S\+V\+Reader}} (const std\+::string \&Edge\+File\+Name, const std\+::string \&Weight\+File\+Name=\char`\"{}None\char`\"{}, const std\+::string \&delimeter=\char`\"{},\char`\"{})
+\begin{DoxyCompactList}\small\item\em Constructor. \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{classg_sparse_1_1_graph_c_s_v_reader_a01218efe45c694d0b721e737e9c53365}{Read}} (g\+Sparse\+::\+Edge\+Matrix \&Edges, g\+Sparse\+::\+Precision\+Row\+Matrix \&Weights)
+\begin{DoxyCompactList}\small\item\em Read graph data from a C\+SV file specified in the constructor. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classg_sparse_1_1_graph_c_s_v_reader_a698d7bab55ff0857f264b3a6cc79d02f}\label{classg_sparse_1_1_graph_c_s_v_reader_a698d7bab55ff0857f264b3a6cc79d02f}} 
+\mbox{\hyperlink{classg_sparse_1_1_graph_c_s_v_reader_a698d7bab55ff0857f264b3a6cc79d02f}{$\sim$\+Graph\+C\+S\+V\+Reader}} ()=default
+\begin{DoxyCompactList}\small\item\em Default destructor. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+A Graph C\+SV Data Reader. 
+
+This class reads Graph Edge and List C\+SV files and transform them into Eigen Matrix. Node index starts from zero. Weight data type is g\+Sparse\+::\+P\+R\+E\+C\+I\+S\+I\+ON type defined in \mbox{\hyperlink{_config_8hpp_source}{Config.\+hpp}} 
+
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classg_sparse_1_1_graph_c_s_v_reader_a5c95cc40faadeaa36766b05b3b4079d0}\label{classg_sparse_1_1_graph_c_s_v_reader_a5c95cc40faadeaa36766b05b3b4079d0}} 
+\index{g\+Sparse\+::\+Graph\+C\+S\+V\+Reader@{g\+Sparse\+::\+Graph\+C\+S\+V\+Reader}!Graph\+C\+S\+V\+Reader@{Graph\+C\+S\+V\+Reader}}
+\index{Graph\+C\+S\+V\+Reader@{Graph\+C\+S\+V\+Reader}!g\+Sparse\+::\+Graph\+C\+S\+V\+Reader@{g\+Sparse\+::\+Graph\+C\+S\+V\+Reader}}
+\subsubsection{\texorpdfstring{Graph\+C\+S\+V\+Reader()}{GraphCSVReader()}}
+{\footnotesize\ttfamily g\+Sparse\+::\+Graph\+C\+S\+V\+Reader\+::\+Graph\+C\+S\+V\+Reader (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{Edge\+File\+Name,  }\item[{const std\+::string \&}]{Weight\+File\+Name = {\ttfamily \char`\"{}None\char`\"{}},  }\item[{const std\+::string \&}]{delimeter = {\ttfamily \char`\"{},\char`\"{}} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Constructor. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em Edge\+File\+Name} & A filename pointing to a C\+SV file that contains Edge list. \\
+\hline
+{\em Weight\+File\+Name} & A filename pointing to a C\+SV file that contains weight list. Default is \char`\"{}\+None\char`\"{}\+: all weights equal to one. \\
+\hline
+{\em delimeter} & A delimeter of the C\+SV file. Default is a comma (,). \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{classg_sparse_1_1_graph_c_s_v_reader_a01218efe45c694d0b721e737e9c53365}\label{classg_sparse_1_1_graph_c_s_v_reader_a01218efe45c694d0b721e737e9c53365}} 
+\index{g\+Sparse\+::\+Graph\+C\+S\+V\+Reader@{g\+Sparse\+::\+Graph\+C\+S\+V\+Reader}!Read@{Read}}
+\index{Read@{Read}!g\+Sparse\+::\+Graph\+C\+S\+V\+Reader@{g\+Sparse\+::\+Graph\+C\+S\+V\+Reader}}
+\subsubsection{\texorpdfstring{Read()}{Read()}}
+{\footnotesize\ttfamily virtual void g\+Sparse\+::\+Graph\+C\+S\+V\+Reader\+::\+Read (\begin{DoxyParamCaption}\item[{g\+Sparse\+::\+Edge\+Matrix \&}]{Edges,  }\item[{g\+Sparse\+::\+Precision\+Row\+Matrix \&}]{Weights }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+
+
+Read graph data from a C\+SV file specified in the constructor. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em Edges} & An Eigen Matrix to receive the Edge list. \\
+\hline
+{\em Weights} & An Eigen Matrix to receive the Weight list. \\
+\hline
+\end{DoxyParams}
+
+
+Implements \mbox{\hyperlink{classg_sparse_1_1_i_graph_reader_a42885505f5bdb8136b0d5b386925d1c7}{g\+Sparse\+::\+I\+Graph\+Reader}}.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+/\+Users/\+Bomb/\+Documents/\+Project/g\+Sparse/include/g\+Sparse/Graph\+C\+S\+V\+Reader.\+hpp\end{DoxyCompactItemize}

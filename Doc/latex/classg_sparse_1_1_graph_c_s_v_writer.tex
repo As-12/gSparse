@@ -1,0 +1,130 @@
+\hypertarget{classg_sparse_1_1_graph_c_s_v_writer}{}\section{g\+Sparse\+:\+:Graph\+C\+S\+V\+Writer Class Reference}
+\label{classg_sparse_1_1_graph_c_s_v_writer}\index{g\+Sparse\+::\+Graph\+C\+S\+V\+Writer@{g\+Sparse\+::\+Graph\+C\+S\+V\+Writer}}
+
+
+A Graph C\+SV Data Writer.  
+
+
+
+
+{\ttfamily \#include $<$Graph\+C\+S\+V\+Writer.\+hpp$>$}
+
+Inheritance diagram for g\+Sparse\+:\+:Graph\+C\+S\+V\+Writer\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classg_sparse_1_1_graph_c_s_v_writer}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classg_sparse_1_1_graph_c_s_v_writer_a72f27412732680150f6706f456db93c4}\label{classg_sparse_1_1_graph_c_s_v_writer_a72f27412732680150f6706f456db93c4}} 
+\mbox{\hyperlink{classg_sparse_1_1_graph_c_s_v_writer_a72f27412732680150f6706f456db93c4}{Graph\+C\+S\+V\+Writer}} (const \mbox{\hyperlink{classg_sparse_1_1_graph_c_s_v_writer}{Graph\+C\+S\+V\+Writer}} \&csv\+Reader) noexcept
+\begin{DoxyCompactList}\small\item\em A copy Constructor. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classg_sparse_1_1_graph_c_s_v_writer_ab0b254d0861f2bb0edc789e6f080a912}\label{classg_sparse_1_1_graph_c_s_v_writer_ab0b254d0861f2bb0edc789e6f080a912}} 
+\mbox{\hyperlink{classg_sparse_1_1_graph_c_s_v_writer}{Graph\+C\+S\+V\+Writer}} \& \mbox{\hyperlink{classg_sparse_1_1_graph_c_s_v_writer_ab0b254d0861f2bb0edc789e6f080a912}{operator=}} (const \mbox{\hyperlink{classg_sparse_1_1_graph_c_s_v_writer}{Graph\+C\+S\+V\+Writer}} \&csv\+Reader) noexcept
+\begin{DoxyCompactList}\small\item\em A = operator overloaded. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classg_sparse_1_1_graph_c_s_v_writer_aa89f61ce6e6affcbc418f892f0110de9}{Graph\+C\+S\+V\+Writer}} (const std\+::string \&Edge\+File\+Name, const std\+::string \&Weight\+File\+Name=\char`\"{}None\char`\"{}, std\+::string delimeter=\char`\"{},\char`\"{})
+\begin{DoxyCompactList}\small\item\em Constructor. \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{classg_sparse_1_1_graph_c_s_v_writer_a588c4bf47ee70bb72079ac7d6f843c2d}{Write}} (const g\+Sparse\+::\+Graph \&graph)
+\begin{DoxyCompactList}\small\item\em Write graph data to a C\+SV file specified in the constructor. \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{classg_sparse_1_1_graph_c_s_v_writer_a83598d104e12327bf819928239e18ca3}{Write}} (const g\+Sparse\+::\+Edge\+Matrix \&Edges)
+\begin{DoxyCompactList}\small\item\em Write graph data to a C\+SV file specified in the constructor. \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{classg_sparse_1_1_graph_c_s_v_writer_a66e9fe4e8887abca81d6d0090b217950}{Write}} (const g\+Sparse\+::\+Edge\+Matrix \&Edges, const g\+Sparse\+::\+Precision\+Row\+Matrix \&Weights)
+\begin{DoxyCompactList}\small\item\em Write graph data to a C\+SV file specified in the constructor. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+A Graph C\+SV Data Writer. 
+
+This class writes Graph Edge and List C\+SV files based on given input Node index starts from zero. Weight data type is g\+Sparse\+::\+P\+R\+E\+C\+I\+S\+I\+ON type defined in \mbox{\hyperlink{_config_8hpp_source}{Config.\+hpp}} 
+
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classg_sparse_1_1_graph_c_s_v_writer_aa89f61ce6e6affcbc418f892f0110de9}\label{classg_sparse_1_1_graph_c_s_v_writer_aa89f61ce6e6affcbc418f892f0110de9}} 
+\index{g\+Sparse\+::\+Graph\+C\+S\+V\+Writer@{g\+Sparse\+::\+Graph\+C\+S\+V\+Writer}!Graph\+C\+S\+V\+Writer@{Graph\+C\+S\+V\+Writer}}
+\index{Graph\+C\+S\+V\+Writer@{Graph\+C\+S\+V\+Writer}!g\+Sparse\+::\+Graph\+C\+S\+V\+Writer@{g\+Sparse\+::\+Graph\+C\+S\+V\+Writer}}
+\subsubsection{\texorpdfstring{Graph\+C\+S\+V\+Writer()}{GraphCSVWriter()}}
+{\footnotesize\ttfamily g\+Sparse\+::\+Graph\+C\+S\+V\+Writer\+::\+Graph\+C\+S\+V\+Writer (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{Edge\+File\+Name,  }\item[{const std\+::string \&}]{Weight\+File\+Name = {\ttfamily \char`\"{}None\char`\"{}},  }\item[{std\+::string}]{delimeter = {\ttfamily \char`\"{},\char`\"{}} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Constructor. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em Edge\+File\+Name} & A filename pointing to a C\+SV file that contains Edge list. \\
+\hline
+{\em Weight\+File\+Name} & A filename pointing to a C\+SV file that contains weight list. Default is \char`\"{}\+None\char`\"{}\+: all weights equal to one. \\
+\hline
+{\em delimeter} & A delimeter of the C\+SV file. Default is a comma (,). \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{classg_sparse_1_1_graph_c_s_v_writer_a588c4bf47ee70bb72079ac7d6f843c2d}\label{classg_sparse_1_1_graph_c_s_v_writer_a588c4bf47ee70bb72079ac7d6f843c2d}} 
+\index{g\+Sparse\+::\+Graph\+C\+S\+V\+Writer@{g\+Sparse\+::\+Graph\+C\+S\+V\+Writer}!Write@{Write}}
+\index{Write@{Write}!g\+Sparse\+::\+Graph\+C\+S\+V\+Writer@{g\+Sparse\+::\+Graph\+C\+S\+V\+Writer}}
+\subsubsection{\texorpdfstring{Write()}{Write()}\hspace{0.1cm}{\footnotesize\ttfamily [1/3]}}
+{\footnotesize\ttfamily virtual void g\+Sparse\+::\+Graph\+C\+S\+V\+Writer\+::\+Write (\begin{DoxyParamCaption}\item[{const g\+Sparse\+::\+Graph \&}]{graph }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+
+
+Write graph data to a C\+SV file specified in the constructor. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em graph} & A graph object \\
+\hline
+{\em Weights} & An Eigen Matrix to receive the Weight list. \\
+\hline
+\end{DoxyParams}
+
+
+Implements \mbox{\hyperlink{classg_sparse_1_1_i_graph_writer_a24a0956558888343c5e56a3c39b138af}{g\+Sparse\+::\+I\+Graph\+Writer}}.
+
+\mbox{\Hypertarget{classg_sparse_1_1_graph_c_s_v_writer_a83598d104e12327bf819928239e18ca3}\label{classg_sparse_1_1_graph_c_s_v_writer_a83598d104e12327bf819928239e18ca3}} 
+\index{g\+Sparse\+::\+Graph\+C\+S\+V\+Writer@{g\+Sparse\+::\+Graph\+C\+S\+V\+Writer}!Write@{Write}}
+\index{Write@{Write}!g\+Sparse\+::\+Graph\+C\+S\+V\+Writer@{g\+Sparse\+::\+Graph\+C\+S\+V\+Writer}}
+\subsubsection{\texorpdfstring{Write()}{Write()}\hspace{0.1cm}{\footnotesize\ttfamily [2/3]}}
+{\footnotesize\ttfamily virtual void g\+Sparse\+::\+Graph\+C\+S\+V\+Writer\+::\+Write (\begin{DoxyParamCaption}\item[{const g\+Sparse\+::\+Edge\+Matrix \&}]{Edges }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+
+
+Write graph data to a C\+SV file specified in the constructor. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em Edges} & An edge list to be written to a C\+SV file \\
+\hline
+\end{DoxyParams}
+
+
+Implements \mbox{\hyperlink{classg_sparse_1_1_i_graph_writer_aa778df52e1595439d724fc873a8dfb52}{g\+Sparse\+::\+I\+Graph\+Writer}}.
+
+\mbox{\Hypertarget{classg_sparse_1_1_graph_c_s_v_writer_a66e9fe4e8887abca81d6d0090b217950}\label{classg_sparse_1_1_graph_c_s_v_writer_a66e9fe4e8887abca81d6d0090b217950}} 
+\index{g\+Sparse\+::\+Graph\+C\+S\+V\+Writer@{g\+Sparse\+::\+Graph\+C\+S\+V\+Writer}!Write@{Write}}
+\index{Write@{Write}!g\+Sparse\+::\+Graph\+C\+S\+V\+Writer@{g\+Sparse\+::\+Graph\+C\+S\+V\+Writer}}
+\subsubsection{\texorpdfstring{Write()}{Write()}\hspace{0.1cm}{\footnotesize\ttfamily [3/3]}}
+{\footnotesize\ttfamily virtual void g\+Sparse\+::\+Graph\+C\+S\+V\+Writer\+::\+Write (\begin{DoxyParamCaption}\item[{const g\+Sparse\+::\+Edge\+Matrix \&}]{Edges,  }\item[{const g\+Sparse\+::\+Precision\+Row\+Matrix \&}]{Weights }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+
+
+Write graph data to a C\+SV file specified in the constructor. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em Edges} & An edge list to be written to a C\+SV file \\
+\hline
+{\em Weights} & A weight list to be written to a C\+SV file \\
+\hline
+\end{DoxyParams}
+
+
+Implements \mbox{\hyperlink{classg_sparse_1_1_i_graph_writer_ae2c720f3e37629da40fdc5d0e4fe2dd2}{g\+Sparse\+::\+I\+Graph\+Writer}}.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+/\+Users/\+Bomb/\+Documents/\+Project/g\+Sparse/include/g\+Sparse/Graph\+C\+S\+V\+Writer.\+hpp\end{DoxyCompactItemize}
