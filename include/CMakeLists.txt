@@ -11,6 +11,6 @@ add_library(gSparse::gSparse ALIAS ${PROJECT_NAME})
 
 # Specify where the header-only library is
 target_include_directories( ${PROJECT_NAME}
-    INTERFACE ${PROJECT_SOURCE_DIR}
+    INTERFACE ${PROJECT_SOURCE_DIR}/
 )
 
