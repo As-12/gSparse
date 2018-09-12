@@ -3,7 +3,7 @@
 // found in the top-level directory of this distribution.
 
 #include <gtest/gtest.h>
-#include <gSparse/Builder/CompleteGraph.hpp>
+#include <gSparse/gSparse.hpp>
 
 TEST(Builder, CompleteUnitGraph)
 {
