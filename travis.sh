@@ -13,4 +13,4 @@ cmake -DBUILD_DOC=OFF \
       ..
 make
 cd Test
-CTEST_OUTPUT_ON_FAILURE=1 ctest
+CTEST_OUTPUT_ON_FAILURE=1 ctest --verbose
