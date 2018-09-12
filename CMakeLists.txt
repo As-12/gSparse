@@ -33,7 +33,17 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 ##############################
 # Dependencies
 ##############################
-find_package (Eigen3 3.3 REQUIRED NO_MODULE)   # Eigen is a header-only library
+find_package(Eigen3)
+if(Eigen3)
+  find_package(Eigen3 REQUIRED eigen3)
+  MESSAGE(STATUS "Found ${EIGEN3_INCLUDE_DIRS} by FindEigen.cmake")
+else(Eigen3)
+  find_package(PkgConfig)
+  pkg_check_modules(EIGEN3 REQUIRED eigen3)
+  #pkg_search_module(EIGEN3 REQUIRED eigen3)
+  include_directories( ${EIGEN3_INCLUDE_DIRS} )
+  MESSAGE(STATUS "Found ${EIGEN3_INCLUDE_DIRS} by pkg-config")
+endif(Eigen3)
 
 ##############################
 # Add sub directories
