@@ -14,16 +14,13 @@ configuration:
 
 install:
   - git submodule update --init --recursive
-  - ps: wget http://bitbucket.org/eigen/eigen/get/3.3.5.zip -outfile eigen3.zip
-  - cmd: 7z x eigen3.zip -o"C:\projects" -y > nul
+  # Get Eigen:
+  - ps: wget http://bitbucket.org/eigen/eigen/get/3.3.5.zip -OutFile eigen.zip
+  - cmd: 7z x eigen.zip -o"C:\projects" -y > nul
+
 before_build:
-    - cd C:\projects\eigen-eigen-b3f3d4950030\
-    - mkdir build
-    - cd build
-    - cmake ..
-    - make install
     - cd %APPVEYOR_BUILD_FOLDER%
-    - cmake -DBUILD_DOC=OFF -DBUILD_DEMO=ON -DBUILD_BENCH=OFF -DEigen3_DIR=C:\projects\eigen-eigen-b3f3d4950030\ -DBUILD_TEST=OFF -G "Visual Studio 15 2017 Win64" .
+    - cmake -DBUILD_DOC=OFF -DBUILD_DEMO=ON -DBUILD_BENCH=OFF -DBUILD_TEST=OFF -DEIGEN3_INCLUDE_DIR=C:\projects\eigen-eigen-b3f3d4950030 -G "Visual Studio 15 2017 Win64" .
     - cd %APPVEYOR_BUILD_FOLDER%
     - dir
     - cd Examples
