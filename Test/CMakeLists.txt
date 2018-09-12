@@ -20,9 +20,9 @@ target_link_libraries(test-GraphCSVReader
     GTest::Main
     Eigen3::Eigen
     gSparse::gSparse  # Header-only library
-   # --coverage
+    --coverage
 )
-#target_compile_options(test-GraphCSVReader PRIVATE --coverage)
+target_compile_options(test-GraphCSVReader PRIVATE --coverage)
 add_test(NAME Test-CSVReader COMMAND test-GraphCSVReader)
 
 #####################################
@@ -35,9 +35,9 @@ target_link_libraries(test-GraphCSVWriter
     GTest::Main
     Eigen3::Eigen
     gSparse::gSparse  # Header-only library
-   # --coverage
+    --coverage
 )
-#target_compile_options(test-GraphCSVWriter PRIVATE --coverage)
+target_compile_options(test-GraphCSVWriter PRIVATE --coverage)
 add_test(NAME Test-CSVWriter COMMAND test-GraphCSVWriter)
 
 #####################################
@@ -50,9 +50,9 @@ target_link_libraries(test-UndirectedGraph
     GTest::Main
     Eigen3::Eigen
     gSparse::gSparse  # Header-only library
-   # --coverage
+    --coverage
 )
-#target_compile_options(test-UndirectedGraph PRIVATE --coverage)
+target_compile_options(test-UndirectedGraph PRIVATE --coverage)
 add_test(NAME Test-UndirectedGraph COMMAND test-UndirectedGraph)
 
 #####################################
@@ -65,9 +65,9 @@ target_link_libraries(test-Util-JL
     GTest::Main
     Eigen3::Eigen
     gSparse::gSparse  # Header-only library
-   # --coverage
+    --coverage
 )
-#target_compile_options(test-Util-JL PRIVATE --coverage)
+target_compile_options(test-Util-JL PRIVATE --coverage)
 add_test(NAME Test-Util-JL COMMAND test-Util-JL)
 
 #####################################
@@ -80,9 +80,9 @@ target_link_libraries(test-ApproximateER
     GTest::Main
     Eigen3::Eigen
     gSparse::gSparse  # Header-only library
-   # --coverage
+    --coverage
 )
-#target_compile_options(test-ApproximateER PRIVATE --coverage)
+target_compile_options(test-ApproximateER PRIVATE --coverage)
 add_test(NAME Test-ApproximateER COMMAND test-ApproximateER)
 
 #####################################
@@ -95,9 +95,9 @@ target_link_libraries(test-ExactER
     GTest::Main
     Eigen3::Eigen
     gSparse::gSparse  # Header-only library
-   # --coverage
+    --coverage
 )
-#target_compile_options(test-ExactER PRIVATE --coverage)
+target_compile_options(test-ExactER PRIVATE --coverage)
 add_test(NAME Test-ExactER COMMAND test-ExactER)
 
 
@@ -113,9 +113,9 @@ target_link_libraries(test-SpectralSparsifier-ERSampling
     GTest::Main
     Eigen3::Eigen
     gSparse::gSparse  # Header-only library
-   # --coverage
+    --coverage
 )
-#target_compile_options(test-SpectralSparsifier-ERSampling PRIVATE --coverage)
+target_compile_options(test-SpectralSparsifier-ERSampling PRIVATE --coverage)
 add_test(NAME Test-SpectralSparsifier-ERSampling COMMAND test-SpectralSparsifier-ERSampling)
 
 #####################################
@@ -128,9 +128,9 @@ target_link_libraries(test-Builder-CompleteGraph
     GTest::Main
     Eigen3::Eigen
     gSparse::gSparse  # Header-only library
-   # --coverage
+    --coverage
 )
-#target_compile_options(test-Builder-CompleteGraph PRIVATE --coverage)
+target_compile_options(test-Builder-CompleteGraph PRIVATE --coverage)
 add_test(NAME Test-Builder-CompleteGraph COMMAND test-Builder-CompleteGraph)
 
 

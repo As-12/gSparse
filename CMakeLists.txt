@@ -12,17 +12,16 @@ project(Skeleton-Header)
 # RELEASE Build Type
 if (NOT CMAKE_BUILD_TYPE)
   message(STATUS "Default build is Release")
-  #set(CMAKE_BUILD_TYPE "RELEASE")
-  set(CMAKE_BUILD_TYPE "DEBUG")
+  set(CMAKE_BUILD_TYPE "RELEASE")
 endif ()
 
 # Options can be turned on and off by providing cmake with a -DOPTIONNAME=ON (or OFF) argument.
 # For example, to turn off benchmarks, build a shared library, and use sanitize flags in a DEBUG build:
 #    cmake .. -DCMAKE_BUILD_TYPE=DEBUG -DBUILD_DEMO=OFF -DBUILD_BENCH=ON
 
-option(BUILD_DOC "Build documentation" OFF)
+option(BUILD_DOC "Build documentation" ON)
 option(BUILD_DEMO "Build demo" ON)
-option(BUILD_BENCH "Build benchmark" OFF)
+option(BUILD_BENCH "Build benchmark" ON)
 option(BUILD_TEST "Build test" ON)
 
 ##############################

@@ -42,3 +42,5 @@ target_link_libraries(Example-5
     Eigen3::Eigen
     gSparse::gSparse  # Header-only library
 )
+# Add Spectra header-only
+target_include_directories(Example-5 PRIVATE ${PROJECT_SOURCE_DIR}/spectra/include)

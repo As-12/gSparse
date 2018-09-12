@@ -15,7 +15,7 @@ TEST(GraphCSVReader, ReadEdge)
 {
     gSparse::PrecisionRowMatrix Weight;
     gSparse::EdgeMatrix Edges;
-    std::shared_ptr<gSparse::IGraphReader> reader =  std::make_shared<gSparse::GraphCSVReader>("Test/test-edges.csv","None"," ");
+    std::shared_ptr<gSparse::IGraphReader> reader =  std::make_shared<gSparse::GraphCSVReader>("test-edges.csv","None"," ");
     reader->Read(Edges, Weight);
     //Building edges validation data
 	gSparse::EdgeMatrix  Edges_Validate(3,2);
@@ -33,10 +33,10 @@ TEST(GraphCSVReader, ReadEdge)
 TEST(GraphCSVReader, ReadAll)
 {
 	/* Testing Initialization */
-	gSparse::GraphCSVReader csvReader("Test/test-edges.csv", "Test/test-weight.csv", " ");
+	gSparse::GraphCSVReader csvReader("test-edges.csv", "test-weight.csv", " ");
 
 	//Loading Test Data
-	gSparse::EdgeMatrix  Edges;
+	gSparse::EdgeMatrix  Edges;cte
 	gSparse::PrecisionRowMatrix  Weight;
 	csvReader.Read(Edges, Weight);
 	

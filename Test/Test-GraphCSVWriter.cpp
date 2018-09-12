@@ -39,12 +39,12 @@ class DummyGraph : public gSparse::IGraph
 private:
 	gSparse::SparsePrecisionMatrix dummy;
 	gSparse::EdgeMatrix dummyEdge;
-	gSparse::PrecisionMatrix dummyWeight;
+	gSparse::PrecisionRowMatrix dummyWeight;
 public:
 	DummyGraph()
 	{
 		dummyEdge = gSparse::EdgeMatrix(3, 2);
-		dummyWeight = gSparse::PrecisionMatrix(3, 1);
+		dummyWeight = gSparse::PrecisionRowMatrix(3, 1);
 		dummyEdge(0, 0) = 1; dummyEdge(0, 1) = 2;
 		dummyEdge(1, 0) = 2; dummyEdge(1, 1) = 3;
 		dummyEdge(2, 0) = 3; dummyEdge(2, 1) = 1;
@@ -94,7 +94,7 @@ public:
 TEST(GraphCSVWriter, Write1)
 {
 	/* Testing Initialization */
-	gSparse::GraphCSVWriter csvWriter("Test/csvwriter-edges.csv", "Test/csvwriter-weight.csv", " ");
+	gSparse::GraphCSVWriter csvWriter("csvwriter-edges.csv", "csvwriter-weight.csv", " ");
 
     //Building Validation data
 	gSparse::EdgeMatrix  Edges(3, 2);
@@ -110,15 +110,15 @@ TEST(GraphCSVWriter, Write1)
     csvWriter.Write(Edges, Weight);
 
     // Compare if they are the same
-	EXPECT_EQ(true, compareFiles("Test/csvwriter-edges.csv", "Test/test-edges.csv"));
-	EXPECT_EQ(true, compareFiles("Test/csvwriter-weight.csv", "Test/test-weight.csv"));
+	EXPECT_EQ(true, compareFiles("csvwriter-edges.csv", "test-edges.csv"));
+	EXPECT_EQ(true, compareFiles("csvwriter-weight.csv", "test-weight.csv"));
 }
 
 TEST(GraphCSVWriter, Write2)
 {
     /* Testing Initialization */
-    gSparse::GraphWriter csvWriter = std::make_shared<gSparse::GraphCSVWriter>("Test/csvwriter-edges.csv", 
-    "Test/csvwriter-weight.csv", 
+    gSparse::GraphWriter csvWriter = std::make_shared<gSparse::GraphCSVWriter>("csvwriter-edges.csv", 
+    "csvwriter-weight.csv", 
     " ") ;
 
 	//Building Validation data
@@ -135,28 +135,28 @@ TEST(GraphCSVWriter, Write2)
     // Write the file
 	csvWriter->Write(Edges, Weight);
 	 // Compare if they are the same
-	EXPECT_EQ(true, compareFiles("Test/csvwriter-edges.csv", "Test/test-edges.csv"));
-	EXPECT_EQ(true, compareFiles("Test/csvwriter-weight.csv", "Test/test-weight.csv"));
+	EXPECT_EQ(true, compareFiles("csvwriter-edges.csv", "test-edges.csv"));
+	EXPECT_EQ(true, compareFiles("csvwriter-weight.csv", "test-weight.csv"));
 }
 
 
 TEST(GraphCSVWriter, WriteGraphObject)
 {
     /* Testing Initialization */
-    gSparse::GraphWriter csvWriter = std::make_shared<gSparse::GraphCSVWriter>("Test/csvwriter-edges.csv", 
-    "Test/csvwriter-weight.csv", 
+    gSparse::GraphWriter csvWriter = std::make_shared<gSparse::GraphCSVWriter>("csvwriter-edges.csv", 
+    "csvwriter-weight.csv", 
     " ");
 
     /* Write file based on data from graph */
 	gSparse::Graph dummy(new DummyGraph());
 	csvWriter->Write(dummy);
-	EXPECT_EQ(true, compareFiles("Test/csvwriter-edges.csv", "Test/test-edges.csv"));
-	EXPECT_EQ(true, compareFiles("Test/csvwriter-weight.csv", "Test/test-weight.csv"));
+	EXPECT_EQ(true, compareFiles("csvwriter-edges.csv", "test-edges.csv"));
+	EXPECT_EQ(true, compareFiles("csvwriter-weight.csv", "test-weight.csv"));
 }
 TEST(GraphCSVWriter, WriteEdgeOnly)
 {
     /* Testing Initialization */
-    gSparse::GraphWriter csvWriter = std::make_shared<gSparse::GraphCSVWriter>("Test/csvwriter-edges.csv", 
+    gSparse::GraphWriter csvWriter = std::make_shared<gSparse::GraphCSVWriter>("csvwriter-edges.csv", 
     "None", 
     " ") ;
 
@@ -168,13 +168,13 @@ TEST(GraphCSVWriter, WriteEdgeOnly)
 
     // Write the file
 	csvWriter->Write(Edges);
-    EXPECT_EQ(true, compareFiles("Test/csvwriter-edges.csv", "Test/test-edges.csv"));
+    EXPECT_EQ(true, compareFiles("csvwriter-edges.csv", "test-edges.csv"));
 }
 
 TEST(GraphCSVWriter, WriteGraphError1)
 {
     /* Testing Initialization */
-    gSparse::GraphWriter csvWriter = std::make_shared<gSparse::GraphCSVWriter>("Test/csvwriter-edges.csv", 
+    gSparse::GraphWriter csvWriter = std::make_shared<gSparse::GraphCSVWriter>("csvwriter-edges.csv", 
     "None", 
     " ");
 
@@ -185,7 +185,7 @@ TEST(GraphCSVWriter, WriteGraphError1)
 TEST(GraphCSVWriter, WriteGraphError2)
 {
     /* Testing Initialization */
-    gSparse::GraphWriter csvWriter = std::make_shared<gSparse::GraphCSVWriter>("Test/csvwriter-edges.csv", 
+    gSparse::GraphWriter csvWriter = std::make_shared<gSparse::GraphCSVWriter>("csvwriter-edges.csv", 
     "None", 
     " ");
 
@@ -197,7 +197,7 @@ TEST(GraphCSVWriter, WriteGraphError2)
 TEST(GraphCSVWriter, WriteGraphError3)
 {
     /* Testing Initialization */
-    gSparse::GraphWriter csvWriter = std::make_shared<gSparse::GraphCSVWriter>("Test/csvwriter-edges.csv", 
+    gSparse::GraphWriter csvWriter = std::make_shared<gSparse::GraphCSVWriter>("csvwriter-edges.csv", 
     "None", 
     " ") ;
 

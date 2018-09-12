@@ -1,50 +1,77 @@
-/**
- * Example-1.cpp
- * 
- * This example calculate Eigen values of a specified graph using Spectra. s
- * 
- * */
-
 // Copyright (C) 2018 Thanaphon Chavengsaksongkram <as12production@gmail.com>, He Sun <he.sun@ed.ac.uk>
 // This file is subject to the license terms in the LICENSE file
 // found in the top-level directory of this distribution.
 
+/**
+ * Example-5.cpp
+ * 
+ * This example perform Spectral Sparsification, and use Spectra to calcualte Eigenvalue of Graph Laplacians
+ * 
+ * */
+
 #include <gSparse/gSparse.hpp>
 #include <iostream>
-#include <gSparse/Builder/CommunityGraph.hpp>
+#include <Eigen/Core>
+#include <Eigen/SparseCore>
+#include <Spectra/GenEigsSolver.h>
+#include <Spectra/MatOp/SparseGenMatProd.h>
 
+Eigen::VectorXcd GetTopEigenValue(const gSparse::SparsePrecisionMatrix & M)
+{
+    std::cout << "Calculating Eigen Value"<<std::endl;
+    using namespace Spectra;
+    SparseGenMatProd<double> op(M);
+
+    // Construct eigen solver object, requesting the largest three eigenvalues
+    GenEigsSolver< double, LARGEST_MAGN, SparseGenMatProd<double> > eigs(&op, 3, 6);
+
+    // Initialize and compute
+    eigs.init();
+    int nconv = eigs.compute();
+
+    // Retrieve results
+    Eigen::VectorXcd evalues;
+    if(eigs.info() == SUCCESSFUL)
+        evalues = eigs.eigenvalues();
+
+    std::cout << "Eigenvalues found:\n" << evalues << std::endl;
+    return evalues;
+}
 int main()
 {
-    
-   /*gSparse::Builder::createRandomGraph(2,1,30,"dumbell-30.csv");
-    gSparse::Builder::createRandomGraph(3,4,30,"3-Community-30.csv");
-    gSparse::Builder::createRandomGraph(4,8,30,"4-Community-30.csv");
-    gSparse::Builder::createRandomGraph(3,8,1000,"3-Community-1000.csv");
-    gSparse::GraphCSVWriter writer("Complete-1000.csv","None"," ");
-    gSparse::GraphCSVWriter writer2("Complete-30.csv","None"," ");
-    gSparse::GraphCSVWriter writer3("Complete-2000.csv","None"," ");
-
-    writer.Write(gSparse::Builder::buildUnitCompleteGraph(1000)->GetEdgeList());
-    writer3.Write(gSparse::Builder::buildUnitCompleteGraph(2000)->GetEdgeList());
-    writer2.Write(gSparse::Builder::buildUnitCompleteGraph(30)->GetEdgeList());*/
-
-    //writer.Write(std::make_shared<gSparse::UndirectedGraph>(gSparse::Builder::buildUnitCompleteGraph(30)));
-    //writer.Write(std::make_shared<gSparse::UndirectedGraph>(gSparse::Builder::buildUnitCompleteGraph(2000)));
-    gSparse::GraphReader reader = std::make_shared<gSparse::GraphCSVReader>("../Dataset/dumbell-30.csv","None"," ");
-    gSparse::Graph graph = std::make_shared<gSparse::UndirectedGraph>(reader);
+    // Generate 100x100 Complete Graph
+    auto graph = gSparse::Builder::buildUnitCompleteGraph(100);
+    // Creating Sparsifier Object
     gSparse::SpectralSparsifier::ERSampling sparsifier(graph);
-
-    sparsifier.SetC(100);
-    sparsifier.SetEpsilon(0.75);
-    std::cout<<"ER"<<std::endl;
+    // Set Hyper-parameters
+    // Approximate the Effective Weight Resistance (Faster)
+    // C = 100 and Epsilon = 0.5
+    sparsifier.SetERPolicy(gSparse::SpectralSparsifier::APPROXIMATE_ER);
+    sparsifier.SetC(100.0);
+    sparsifier.SetEpsilon(0.5);
+    // Compute Effective Weight Resistance using ApproxER
     sparsifier.Compute();
-    std::cout<<"Sparsifying"<<std::endl;
-    auto result = sparsifier.GetSparsifiedGraph();
+    // Get a sparsified graph
+    auto sparseGraph1 = sparsifier.GetSparsifiedGraph();
+    // Set to EXACT ER
+    sparsifier.SetERPolicy(gSparse::SpectralSparsifier::EXACT_ER);
+    // Re-calcuate ER using ExactER
+    sparsifier.Compute();
+    // Get a sparsified graph
+    auto sparseGraph2 = sparsifier.GetSparsifiedGraph();
 
-    gSparse::GraphCSVWriter writer("sparsifier-dumbell-eps75-edges.csv",
-                                   "sparsifier-dumbell-eps75-weights.csv");
-    writer.Write(result);
-    return EXIT_SUCCESS;
+    // Use Spectra to calculate top Eigen values. 
+    std::cout<<"Original Eigen Value " <<std::endl;
+    GetTopEigenValue(graph->GetLaplacianMatrix());
+    std::cout<<"---------------------------"<<std::endl;
+    std::cout<<"Top Eigen Value for ApproxER "<<std::endl;
+    GetTopEigenValue(sparseGraph1->GetLaplacianMatrix());
+    std::cout<<"Top Eigen Value for ApproxER - Original"<<std::endl;
+    GetTopEigenValue(sparseGraph1->GetLaplacianMatrix() - graph->GetLaplacianMatrix());
+    std::cout<<"---------------------------"<<std::endl;
+    std::cout<<"Top Eigen Value for ExactER "<<std::endl;
+    GetTopEigenValue(sparseGraph2->GetLaplacianMatrix());
+    std::cout<<"Top Eigen Value for ApproxER - ExactER"<<std::endl;
+    GetTopEigenValue(sparseGraph1->GetLaplacianMatrix() - graph->GetLaplacianMatrix());
+    return 0;
 }
-
-
