@@ -6,7 +6,7 @@ platform:
   - x64
 
 environment:
-  EIGEN3_ROOT:       C:\dev\Eigen3\include\eigen3
+  EIGEN3_ROOT:  C:\projects\eigen-eigen-b3f3d4950030\
 
 configuration:
   - Release
