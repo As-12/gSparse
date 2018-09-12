@@ -1,6 +1,6 @@
 # gSparse
 
-[![Build Status](https://travis-ci.org/As-12/gSparse.svg?branch=master)](https://travis-ci.org/As-12/gSparse) [![Build status](https://ci.appveyor.com/api/projects/status/58mii1ji8rwtr630?svg=true)](https://ci.appveyor.com/project/As-12/gsparse) [![Coverage Status](https://coveralls.io/repos/github/As-12/Header-only-skeleton/badge.svg?branch=master)](https://coveralls.io/github/As-12/Header-only-skeleton?branch=master) [![Documentation](https://codedocs.xyz/As-12/gSparse.svg)](https://codedocs.xyz/As-12/gSparse/) [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![Build Status](https://travis-ci.org/As-12/gSparse.svg?branch=master)](https://travis-ci.org/As-12/gSparse)[![Coverage Status](https://coveralls.io/repos/github/As-12/Header-only-skeleton/badge.svg?branch=master)](https://coveralls.io/github/As-12/Header-only-skeleton?branch=master) [![Documentation](https://codedocs.xyz/As-12/gSparse.svg)](https://codedocs.xyz/As-12/gSparse/) [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
 
 gSparse: C++ Library for Graph Sparsification 
