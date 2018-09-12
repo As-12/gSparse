@@ -12,7 +12,7 @@ compiler:
   - clang
 before_install:
   - pip install --user cpp-coveralls
-  - wget http://bitbucket.org/eigen/eigen/get/3.3.5.tar.gz eigen.tar.gz
+  - wget http://bitbucket.org/eigen/eigen/get/3.3.5.tar.gz -O eigen.tar.gz
   - mkdir eigen3 
   - tar -xvjf eigen.tar.gz -C eigen3 --strip-components 1
   - cd eigen3 
