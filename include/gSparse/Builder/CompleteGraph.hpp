@@ -48,8 +48,8 @@ namespace gSparse
 
             #ifndef NDEBUG
 			assert (upper_weight >= lower_weight);
-            assert (lower_weight > 0)
-            assert (upper_weight > 0)
+            assert (lower_weight > 0.0f);
+            assert (upper_weight > 0.0f);
 			#endif 
             
 			gSparse::EdgeMatrix resultEdge = gSparse::EdgeMatrix((n * (n - 1)) / 2, 2);
