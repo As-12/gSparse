@@ -1,4 +1,6 @@
 var searchData=
 [
-  ['operator_3d',['operator=',['../classg_sparse_1_1_graph_c_s_v_reader.html#a9736ef3836d11b7d4cd095b0613410d5',1,'gSparse::GraphCSVReader::operator=()'],['../classg_sparse_1_1_graph_c_s_v_writer.html#ab0b254d0861f2bb0edc789e6f080a912',1,'gSparse::GraphCSVWriter::operator=()'],['../classg_sparse_1_1_undirected_graph.html#a1861d653adafc04d227819603de7e446',1,'gSparse::UndirectedGraph::operator=()']]]
+  ['igraph',['IGraph',['../classg_sparse_1_1_i_graph.html#a49f79b460e4166da28dd0f188bd0e34e',1,'gSparse::IGraph']]],
+  ['igraphreader',['IGraphReader',['../classg_sparse_1_1_i_graph_reader.html#adc903c78e5b76aebca391b2b07ec81d7',1,'gSparse::IGraphReader']]],
+  ['igraphwriter',['IGraphWriter',['../classg_sparse_1_1_i_graph_writer.html#a05a22eb501d282bc3617e034ac6ce2af',1,'gSparse::IGraphWriter']]]
 ];

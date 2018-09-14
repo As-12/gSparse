@@ -1,0 +1,252 @@
+{\bfseries g\+Sparse} is a C++ library for Graph Sparsification. It is built on top of \href{http://eigen.tuxfamily.org}{\tt Eigen}, an open source linear algebra library.
+
+\subsection*{Sparsification Algorithm(s)}
+
+{\bfseries g\+Sparse} currently supports the following algorithm(s).
+\begin{DoxyItemize}
+\item \href{https://arxiv.org/abs/0803.0929}{\tt Spectral Sparsification by Effective Resistance}
+\end{DoxyItemize}
+
+\subsection*{Header-\/only Library}
+
+{\bfseries g\+Sparse} is implemented as a header-\/only C++ library, whose only dependency, {\bfseries Eigen}, is also header-\/only.
+
+\subsection*{License}
+
+{\bfseries g\+Sparse} is an open source project licensed under M\+IT License.
+
+\subsection*{Examples-\/1}
+
+An example that demonstrates the g\+Sparse to sparsify a graph from C\+SV files
+
+
+\begin{DoxyCode}
+\textcolor{preprocessor}{#include <gSparse/gSparse.hpp>}
+\textcolor{preprocessor}{#include <iostream>}
+
+\textcolor{keywordtype}{int} main()
+\{
+    \textcolor{comment}{// Create a CSV Reader and specify the file location}
+    gSparse::GraphReader csvReader = std::make\_shared<gSparse::GraphCSVReader>(\textcolor{stringliteral}{"edgeList.csv"}, \textcolor{stringliteral}{"
+      weightList.csv"},\textcolor{stringliteral}{","});
+    \textcolor{comment}{// Create an Undirected Graph. gSparse::Graph object is a shared\_ptr.}
+    gSparse::Graph graph = std::make\_shared<gSparse::UndirectedGraph>(csvReader);
+
+    \textcolor{comment}{// Display original edge count}
+    std::cout<<\textcolor{stringliteral}{"Original Edge Count: "} << graph->GetEdgeCount() << std::endl;
+
+    \textcolor{comment}{// Creating Sparsifier Object}
+    \mbox{\hyperlink{classg_sparse_1_1_spectral_sparsifier_1_1_e_r_sampling}{gSparse::SpectralSparsifier::ERSampling}} sparsifier(graph);
+    \textcolor{comment}{// Set Hyper-parameters}
+    \textcolor{comment}{// Approximate the Effective Weight Resistance (Faster)}
+    \textcolor{comment}{// C = 4 and Epsilon = 0.5}
+    sparsifier.SetERPolicy(gSparse::SpectralSparsifier::APPROXIMATE\_ER);
+    sparsifier.SetC(4.0);
+    sparsifier.SetEpsilon(0.5);
+    \textcolor{comment}{// Compute Effective Weight Resistance}
+    sparsifier.Compute();
+    \textcolor{comment}{// Perform Sparsification }
+    \textcolor{keyword}{auto} sparseGraph1 = sparsifier.GetSparsifiedGraph();
+    std::cout<<\textcolor{stringliteral}{"Sparised Edge Count (ApproxER): "} << sparseGraph1->GetEdgeCount() << std::endl;
+    \textcolor{keywordflow}{return} EXIT\_SUCCESS;
+\}
+\end{DoxyCode}
+
+
+\subsection*{Examples-\/2}
+
+An example that shows how to create a Graph object from C\+SV file and Eigen Matrix
+
+
+\begin{DoxyCode}
+\textcolor{preprocessor}{#include <gSparse/gSparse.hpp>}
+\textcolor{preprocessor}{#include <iostream>}
+\textcolor{preprocessor}{#include <memory>}
+
+\textcolor{keywordtype}{int} main()
+\{
+    \textcolor{comment}{// Create a CSV Reader and specify the file location}
+    gSparse::GraphReader csvReader = std::make\_shared<gSparse::GraphCSVReader>(\textcolor{stringliteral}{"
+      Examples/Example-1-edges.csv"}, \textcolor{stringliteral}{"Examples/Example-1-weights.csv"});
+    \textcolor{comment}{// Create an Undirected Graph. gSparse::Graph object is a shared\_ptr.}
+    gSparse::Graph graph = std::make\_shared<gSparse::UndirectedGraph>(csvReader);
+
+    \textcolor{comment}{// Display the Edge list of the graph}
+    std::cout<<\textcolor{stringliteral}{"Edge List of Graph"}<<std::endl;
+    std::cout<<graph->GetEdgeList()<<std::endl;
+    \textcolor{comment}{// Display the weight list of the graph}
+    std::cout<<\textcolor{stringliteral}{"Weight List of Graph"}<<std::endl;
+    std::cout<<graph->GetWeightList()<<std::endl;
+
+    \textcolor{comment}{// Creating Edge and Weight Data Manually using Eigen Matrix}
+    gSparse::EdgeMatrix Edges(3, 2);
+    gSparse::PrecisionMatrix Weights(3, 1);
+    Edges(0, 0) = 0; Edges(0, 1) = 1;
+    Edges(1, 0) = 1; Edges(1, 1) = 2;
+    Edges(2, 0) = 2; Edges(2, 1) = 3;
+    Weights << 1, 1, 1;
+
+    \textcolor{comment}{// Construct the graph based on the data generated}
+    \mbox{\hyperlink{classg_sparse_1_1_undirected_graph}{gSparse::UndirectedGraph}} test(Edges);
+    \mbox{\hyperlink{classg_sparse_1_1_undirected_graph}{gSparse::UndirectedGraph}} validation(Edges,Weights);
+
+    \textcolor{keywordflow}{return} EXIT\_SUCCESS;
+\}
+\end{DoxyCode}
+
+
+\subsection*{Examples-\/3}
+
+An example that shows how to calculate graph effective resistance.
+
+
+\begin{DoxyCode}
+\textcolor{preprocessor}{#include <gSparse/gSparse.hpp>}
+\textcolor{preprocessor}{#include <iostream>}
+
+\textcolor{keywordtype}{int} main()
+\{
+
+    \textcolor{comment}{// Create a Unit Complete Graph}
+    \textcolor{keyword}{auto} graph = gSparse::Builder::buildUnitCompleteGraph(5);
+
+    \textcolor{comment}{// Creating object to calculate Exact ER (slow)}
+    \mbox{\hyperlink{classg_sparse_1_1_e_r_1_1___exact_e_r}{gSparse::ER::ExactER}} exactER;
+    \textcolor{comment}{// Object for calculate Approximate ER (faster)}
+    \mbox{\hyperlink{classg_sparse_1_1_e_r_1_1___approximate_e_r}{gSparse::ER::ApproximateER}} approxER; 
+
+    \textcolor{comment}{// Object to hold EffectiveResistance data}
+    gSparse::PrecisionRowMatrix er;
+
+    \textcolor{comment}{// Calculate Exact ER}
+    exactER.\mbox{\hyperlink{classg_sparse_1_1_e_r_1_1___exact_e_r_a47b950a81c815626a9d51a6284d1d49d}{CalculateER}}(er, graph );
+    std::cout<<\textcolor{stringliteral}{"Exact ER Results"}<<std::endl;
+    std::cout<<\textcolor{stringliteral}{"----------------"}<<std::endl;
+    std::cout<<er<<std::endl;
+
+    \textcolor{comment}{// Calculate Approximate ER}
+    approxER.\mbox{\hyperlink{classg_sparse_1_1_e_r_1_1___approximate_e_r_abf16cea687d1129e1a13b4af0db44892}{CalculateER}}(er, graph);
+    std::cout<<\textcolor{stringliteral}{"Approx ER Results"}<<std::endl;
+    std::cout<<\textcolor{stringliteral}{"----------------"}<<std::endl;
+    std::cout<<er<<std::endl;
+    \textcolor{keywordflow}{return} EXIT\_SUCCESS;
+\}
+\end{DoxyCode}
+
+
+\subsection*{Examples-\/4}
+
+This example shows you how to perform Spectral Sparsification by Effective Weight Resistance over completed graph set.
+
+
+\begin{DoxyCode}
+\textcolor{preprocessor}{#include <gSparse/gSparse.hpp>}
+\textcolor{preprocessor}{#include <iostream>}
+
+\textcolor{keywordtype}{int} main()
+\{
+    \textcolor{comment}{// Generate 100x100 Complete Graph}
+    \textcolor{keyword}{auto} graph = gSparse::Builder::buildUnitCompleteGraph(100);
+
+    \textcolor{comment}{// Display original edge count}
+    std::cout<<\textcolor{stringliteral}{"Original Edge Count: "} << graph->GetEdgeCount() << std::endl;
+
+    \textcolor{comment}{// Creating Sparsifier Object}
+    \mbox{\hyperlink{classg_sparse_1_1_spectral_sparsifier_1_1_e_r_sampling}{gSparse::SpectralSparsifier::ERSampling}} sparsifier(graph);
+    \textcolor{comment}{// Set Hyper-parameters}
+    \textcolor{comment}{// Approximate the Effective Weight Resistance (Faster)}
+    \textcolor{comment}{// C = 4 and Epsilon = 0.5}
+    sparsifier.SetERPolicy(gSparse::SpectralSparsifier::APPROXIMATE\_ER);
+    sparsifier.SetC(4.0);
+    sparsifier.SetEpsilon(0.5);
+    \textcolor{comment}{// Compute Effective Weight Resistance}
+    sparsifier.Compute();
+    \textcolor{comment}{// Perform Sparsification }
+    \textcolor{keyword}{auto} sparseGraph1 = sparsifier.GetSparsifiedGraph();
+    std::cout<<\textcolor{stringliteral}{"Sparised Edge Count (ApproxER): "} << sparseGraph1->GetEdgeCount() << std::endl;
+
+    \textcolor{comment}{// Set ER Policy to Exact Effective Resistance instead of Approximation}
+    \textcolor{comment}{// This is expected to perform much slower.}
+    sparsifier.SetERPolicy(gSparse::SpectralSparsifier::EXACT\_ER);
+    sparsifier.Compute();
+    \textcolor{keyword}{auto} sparseGraph2 = sparsifier.GetSparsifiedGraph();
+    std::cout<<\textcolor{stringliteral}{"Sparised Edge Count (ApproxER): "} << sparseGraph2->GetEdgeCount() << std::endl;
+    \textcolor{keywordflow}{return} EXIT\_SUCCESS;
+\}
+\end{DoxyCode}
+
+
+\subsection*{Examples-\/5}
+
+This example perform Spectral Sparsification, and use Spectra to calcualte Eigenvalue of Graph Laplacians
+
+
+\begin{DoxyCode}
+\textcolor{preprocessor}{#include <gSparse/gSparse.hpp>}
+\textcolor{preprocessor}{#include <iostream>}
+\textcolor{preprocessor}{#include <Eigen/Core>}
+\textcolor{preprocessor}{#include <Eigen/SparseCore>}
+\textcolor{preprocessor}{#include <Spectra/GenEigsSolver.h>}
+\textcolor{preprocessor}{#include <Spectra/MatOp/SparseGenMatProd.h>}
+
+Eigen::VectorXcd GetTopEigenValue(\textcolor{keyword}{const} gSparse::SparsePrecisionMatrix & M)
+\{
+    std::cout << \textcolor{stringliteral}{"Calculating Eigen Value"}<<std::endl;
+    \textcolor{keyword}{using namespace }Spectra;
+    SparseGenMatProd<double> op(M);
+
+    \textcolor{comment}{// Construct eigen solver object, requesting the largest three eigenvalues}
+    GenEigsSolver< double, LARGEST\_MAGN, SparseGenMatProd<double> > eigs(&op, 3, 6);
+
+    \textcolor{comment}{// Initialize and compute}
+    eigs.init();
+    \textcolor{keywordtype}{int} nconv = eigs.compute();
+
+    \textcolor{comment}{// Retrieve results}
+    Eigen::VectorXcd evalues;
+    \textcolor{keywordflow}{if}(eigs.info() == SUCCESSFUL)
+        evalues = eigs.eigenvalues();
+
+    std::cout << \textcolor{stringliteral}{"Eigenvalues found:\(\backslash\)n"} << evalues << std::endl;
+    \textcolor{keywordflow}{return} evalues;
+\}
+\textcolor{keywordtype}{int} main()
+\{
+    \textcolor{comment}{// Generate 100x100 Complete Graph}
+    \textcolor{keyword}{auto} graph = gSparse::Builder::buildUnitCompleteGraph(100);
+    \textcolor{comment}{// Creating Sparsifier Object}
+    \mbox{\hyperlink{classg_sparse_1_1_spectral_sparsifier_1_1_e_r_sampling}{gSparse::SpectralSparsifier::ERSampling}} sparsifier(graph);
+    \textcolor{comment}{// Set Hyper-parameters}
+    \textcolor{comment}{// Approximate the Effective Weight Resistance (Faster)}
+    \textcolor{comment}{// C = 100 and Epsilon = 0.5}
+    sparsifier.SetERPolicy(gSparse::SpectralSparsifier::APPROXIMATE\_ER);
+    sparsifier.SetC(100.0);
+    sparsifier.SetEpsilon(0.5);
+    \textcolor{comment}{// Compute Effective Weight Resistance using ApproxER}
+    sparsifier.Compute();
+    \textcolor{comment}{// Get a sparsified graph}
+    \textcolor{keyword}{auto} sparseGraph1 = sparsifier.GetSparsifiedGraph();
+    \textcolor{comment}{// Set to EXACT ER}
+    sparsifier.SetERPolicy(gSparse::SpectralSparsifier::EXACT\_ER);
+    \textcolor{comment}{// Re-calcuate ER using ExactER}
+    sparsifier.Compute();
+    \textcolor{comment}{// Get a sparsified graph}
+    \textcolor{keyword}{auto} sparseGraph2 = sparsifier.GetSparsifiedGraph();
+
+    \textcolor{comment}{// Use Spectra to calculate top Eigen values. }
+    std::cout<<\textcolor{stringliteral}{"Original Eigen Value "} <<std::endl;
+    GetTopEigenValue(graph->GetLaplacianMatrix());
+    std::cout<<\textcolor{stringliteral}{"---------------------------"}<<std::endl;
+    std::cout<<\textcolor{stringliteral}{"Top Eigen Value for ApproxER "}<<std::endl;
+    GetTopEigenValue(sparseGraph1->GetLaplacianMatrix());
+    std::cout<<\textcolor{stringliteral}{"Top Eigen Value for ApproxER - Original"}<<std::endl;
+    GetTopEigenValue(sparseGraph1->GetLaplacianMatrix() - graph->GetLaplacianMatrix());
+    std::cout<<\textcolor{stringliteral}{"---------------------------"}<<std::endl;
+    std::cout<<\textcolor{stringliteral}{"Top Eigen Value for ExactER "}<<std::endl;
+    GetTopEigenValue(sparseGraph2->GetLaplacianMatrix());
+    std::cout<<\textcolor{stringliteral}{"Top Eigen Value for ApproxER - ExactER"}<<std::endl;
+    GetTopEigenValue(sparseGraph1->GetLaplacianMatrix() - graph->GetLaplacianMatrix());
+    \textcolor{keywordflow}{return} 0;
+\}
+\end{DoxyCode}
+ 

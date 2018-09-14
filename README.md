@@ -2,18 +2,21 @@
 
 [![Build Status](https://travis-ci.org/As-12/gSparse.svg?branch=master)](https://travis-ci.org/As-12/gSparse) [![codecov](https://codecov.io/gh/As-12/gSparse/branch/master/graph/badge.svg)](https://codecov.io/gh/As-12/gSparse) [![Documentation](https://codedocs.xyz/As-12/gSparse.svg)](https://codedocs.xyz/As-12/gSparse/) [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
-
-gSparse: C++ Library for Graph Sparsification 
+**gSparse:** C++ Library for Graph Sparsification 
 
 ![Intro](https://github.com/As-12/gSparse/blob/master/Visualization/SpectralSparsification.gif)
 
-
-gSparse is a C++ library for Graph Sparsification. It is built on top of [Eigen](http://eigen.tuxfamily.org),
+**gSparse** is a C++ library for Graph Sparsification. It is built on top of [Eigen](http://eigen.tuxfamily.org),
 an open source linear algebra library.
 
+## Sparsification Algorithm(s) 
+
+**gSparse** currently supports the following algorithm(s). 
+- [Spectral Sparsification by Effective Resistance](https://arxiv.org/abs/0803.0929)
+
+## Header-only Library
 **gSparse** is implemented as a header-only C++ library, whose only dependency,
-**Eigen**, is also header-only. Hence **Spectra** can be easily embedded in
-C++ projects.
+**Eigen**, is also header-only.
 
 ## Relation to FastEffectiveResistance
 [FastER](http://www.cs.cmu.edu/~jkoutis/SpectralAlgorithms.htm) is a software written in

@@ -72,13 +72,81 @@ $(function() {
 <div class="title">gSparse::ER::Policy::AproxERSLMJacobiCG Class Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p><code>#include &lt;<a class="el" href="_aprox_e_r_s_l_m_jacobi_c_g_8hpp_source.html">AproxERSLMJacobiCG.hpp</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-methods"></a>
 Protected Member Functions</h2></td></tr>
-<tr class="memitem:a0174f484153579201e058996a3d19564"><td class="memItemLeft" align="right" valign="top"><a id="a0174f484153579201e058996a3d19564"></a>
-gSparse::COMPUTE_INFO&#160;</td><td class="memItemRight" valign="bottom"><b>_calculateER</b> (gSparse::PrecisionRowMatrix &amp;er, const gSparse::Graph &amp;graph, double eps=1.0f, double JLTol=0.5, int maxIter=300)</td></tr>
+<tr class="memitem:a0174f484153579201e058996a3d19564"><td class="memItemLeft" align="right" valign="top">gSparse::COMPUTE_INFO&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classg_sparse_1_1_e_r_1_1_policy_1_1_aprox_e_r_s_l_m_jacobi_c_g.html#a0174f484153579201e058996a3d19564">_calculateER</a> (gSparse::PrecisionRowMatrix &amp;er, const gSparse::Graph &amp;graph, double eps=1.0f, double JLTol=0.5, int maxIter=300)</td></tr>
 <tr class="separator:a0174f484153579201e058996a3d19564"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>This class Approximate Effective Weight Resistance Adaptation from <a href="http://ccom.uprrp.edu/~ikoutis/SpectralAlgorithms.htm">http://ccom.uprrp.edu/~ikoutis/SpectralAlgorithms.htm</a>. The algorithm leverages Conjugated Graident with Jacobi preconditioner to solve linear system </p>
+</div><h2 class="groupheader">Member Function Documentation</h2>
+<a id="a0174f484153579201e058996a3d19564"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0174f484153579201e058996a3d19564">&#9670;&nbsp;</a></span>_calculateER()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">gSparse::COMPUTE_INFO gSparse::ER::Policy::AproxERSLMJacobiCG::_calculateER </td>
+          <td>(</td>
+          <td class="paramtype">gSparse::PrecisionRowMatrix &amp;&#160;</td>
+          <td class="paramname"><em>er</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const gSparse::Graph &amp;&#160;</td>
+          <td class="paramname"><em>graph</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>eps</em> = <code>1.0f</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>JLTol</em> = <code>0.5</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>maxIter</em> = <code>300</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>This function calculates Effective Resistance and return computation status. </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">er</td><td>A row matrix to receive the EffectiveResistance value </td></tr>
+    <tr><td class="paramname">graph</td><td>A std::shared_ptr&lt;IGraph&gt; object representing the graph to calculate resistance </td></tr>
+    <tr><td class="paramname">eps</td><td>Error tolerance for conjugated gradient. Default is 1.0f. </td></tr>
+    <tr><td class="paramname">JLTol</td><td>Tolerance for JL projection Matrix. Default is 0.5f. (See <a href="http://ccom.uprrp.edu/~ikoutis/SpectralAlgorithms.htm">http://ccom.uprrp.edu/~ikoutis/SpectralAlgorithms.htm</a>.) </td></tr>
+    <tr><td class="paramname">maxIter</td><td>Maximum iteration for conjugated gradient. Default is 300 iterations. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
 <hr/>The documentation for this class was generated from the following file:<ul>
 <li>/Users/Bomb/Documents/Project/gSparse/include/gSparse/ER/Policy/<a class="el" href="_aprox_e_r_s_l_m_jacobi_c_g_8hpp_source.html">AproxERSLMJacobiCG.hpp</a></li>
 </ul>

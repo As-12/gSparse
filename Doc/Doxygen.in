@@ -3,7 +3,7 @@
 
 # These parameters are altered by CMake configure_file
 OUTPUT_DIRECTORY       = @CMAKE_SOURCE_DIR@/Doc/
-INPUT                  = @CMAKE_SOURCE_DIR@/include/ @CMAKE_CURRENT_SOURCE_DIR@/../docs
+INPUT                  = @CMAKE_SOURCE_DIR@/Doc/Overview.md @CMAKE_SOURCE_DIR@/include/
 
 
 # This file describes the settings to be used by the documentation system
@@ -989,7 +989,7 @@ FILTER_SOURCE_PATTERNS =
 # (index.html). This can be useful if you have a project on for instance GitHub
 # and want to reuse the introduction page also for the doxygen output.
 
-USE_MDFILE_AS_MAINPAGE =
+USE_MDFILE_AS_MAINPAGE = Overview.md
 
 #---------------------------------------------------------------------------
 # Configuration options related to source browsing

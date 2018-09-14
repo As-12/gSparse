@@ -1,4 +1,6 @@
 var searchData=
 [
-  ['undirectedgraph',['UndirectedGraph',['../classg_sparse_1_1_undirected_graph.html',1,'gSparse::UndirectedGraph'],['../classg_sparse_1_1_undirected_graph.html#a2e8177317d83d7a468c4abd69dcf3bb1',1,'gSparse::UndirectedGraph::UndirectedGraph(const UndirectedGraph &amp;graph)=delete'],['../classg_sparse_1_1_undirected_graph.html#a3f87a642cb86f46a6a53434598cc1674',1,'gSparse::UndirectedGraph::UndirectedGraph(const gSparse::GraphReader &amp;DataReader)'],['../classg_sparse_1_1_undirected_graph.html#ad9dcd1dd5a47a1f35ee019a007e3cc40',1,'gSparse::UndirectedGraph::UndirectedGraph(const gSparse::EdgeMatrix &amp;Edges)'],['../classg_sparse_1_1_undirected_graph.html#af9609f1e66af95a0bf201a1185394421',1,'gSparse::UndirectedGraph::UndirectedGraph(const gSparse::EdgeMatrix &amp;Edges, const gSparse::PrecisionRowMatrix &amp;Weights)']]]
+  ['setc',['SetC',['../classg_sparse_1_1_spectral_sparsifier_1_1_e_r_sampling.html#a35bf03bbda2e0d37345ce8d460e734a4',1,'gSparse::SpectralSparsifier::ERSampling']]],
+  ['setepsilon',['SetEpsilon',['../classg_sparse_1_1_spectral_sparsifier_1_1_e_r_sampling.html#a57eceac9af3b8846c3370eca999a9a57',1,'gSparse::SpectralSparsifier::ERSampling']]],
+  ['seterpolicy',['SetERPolicy',['../classg_sparse_1_1_spectral_sparsifier_1_1_e_r_sampling.html#a35cf40021c7fa90b5dda042896691bff',1,'gSparse::SpectralSparsifier::ERSampling']]]
 ];

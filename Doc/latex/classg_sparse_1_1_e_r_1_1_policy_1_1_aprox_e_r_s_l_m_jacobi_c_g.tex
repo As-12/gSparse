@@ -1,11 +1,39 @@
 \hypertarget{classg_sparse_1_1_e_r_1_1_policy_1_1_aprox_e_r_s_l_m_jacobi_c_g}{}\section{g\+Sparse\+:\+:ER\+:\+:Policy\+:\+:Aprox\+E\+R\+S\+L\+M\+Jacobi\+CG Class Reference}
 \label{classg_sparse_1_1_e_r_1_1_policy_1_1_aprox_e_r_s_l_m_jacobi_c_g}\index{g\+Sparse\+::\+E\+R\+::\+Policy\+::\+Aprox\+E\+R\+S\+L\+M\+Jacobi\+CG@{g\+Sparse\+::\+E\+R\+::\+Policy\+::\+Aprox\+E\+R\+S\+L\+M\+Jacobi\+CG}}
+
+
+{\ttfamily \#include $<$Aprox\+E\+R\+S\+L\+M\+Jacobi\+C\+G.\+hpp$>$}
+
 \subsection*{Protected Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\Hypertarget{classg_sparse_1_1_e_r_1_1_policy_1_1_aprox_e_r_s_l_m_jacobi_c_g_a0174f484153579201e058996a3d19564}\label{classg_sparse_1_1_e_r_1_1_policy_1_1_aprox_e_r_s_l_m_jacobi_c_g_a0174f484153579201e058996a3d19564}} 
-g\+Sparse\+::\+C\+O\+M\+P\+U\+T\+E\+\_\+\+I\+N\+FO {\bfseries \+\_\+calculate\+ER} (g\+Sparse\+::\+Precision\+Row\+Matrix \&er, const g\+Sparse\+::\+Graph \&graph, double eps=1.\+0f, double J\+L\+Tol=0.\+5, int max\+Iter=300)
+g\+Sparse\+::\+C\+O\+M\+P\+U\+T\+E\+\_\+\+I\+N\+FO \mbox{\hyperlink{classg_sparse_1_1_e_r_1_1_policy_1_1_aprox_e_r_s_l_m_jacobi_c_g_a0174f484153579201e058996a3d19564}{\+\_\+calculate\+ER}} (g\+Sparse\+::\+Precision\+Row\+Matrix \&er, const g\+Sparse\+::\+Graph \&graph, double eps=1.\+0f, double J\+L\+Tol=0.\+5, int max\+Iter=300)
 \end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+This class Approximate Effective Weight Resistance Adaptation from \href{http://ccom.uprrp.edu/~ikoutis/SpectralAlgorithms.htm}{\tt http\+://ccom.\+uprrp.\+edu/$\sim$ikoutis/\+Spectral\+Algorithms.\+htm}. The algorithm leverages Conjugated Graident with Jacobi preconditioner to solve linear system 
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{classg_sparse_1_1_e_r_1_1_policy_1_1_aprox_e_r_s_l_m_jacobi_c_g_a0174f484153579201e058996a3d19564}\label{classg_sparse_1_1_e_r_1_1_policy_1_1_aprox_e_r_s_l_m_jacobi_c_g_a0174f484153579201e058996a3d19564}} 
+\index{g\+Sparse\+::\+E\+R\+::\+Policy\+::\+Aprox\+E\+R\+S\+L\+M\+Jacobi\+CG@{g\+Sparse\+::\+E\+R\+::\+Policy\+::\+Aprox\+E\+R\+S\+L\+M\+Jacobi\+CG}!\+\_\+calculate\+ER@{\+\_\+calculate\+ER}}
+\index{\+\_\+calculate\+ER@{\+\_\+calculate\+ER}!g\+Sparse\+::\+E\+R\+::\+Policy\+::\+Aprox\+E\+R\+S\+L\+M\+Jacobi\+CG@{g\+Sparse\+::\+E\+R\+::\+Policy\+::\+Aprox\+E\+R\+S\+L\+M\+Jacobi\+CG}}
+\subsubsection{\texorpdfstring{\+\_\+calculate\+E\+R()}{\_calculateER()}}
+{\footnotesize\ttfamily g\+Sparse\+::\+C\+O\+M\+P\+U\+T\+E\+\_\+\+I\+N\+FO g\+Sparse\+::\+E\+R\+::\+Policy\+::\+Aprox\+E\+R\+S\+L\+M\+Jacobi\+C\+G\+::\+\_\+calculate\+ER (\begin{DoxyParamCaption}\item[{g\+Sparse\+::\+Precision\+Row\+Matrix \&}]{er,  }\item[{const g\+Sparse\+::\+Graph \&}]{graph,  }\item[{double}]{eps = {\ttfamily 1.0f},  }\item[{double}]{J\+L\+Tol = {\ttfamily 0.5},  }\item[{int}]{max\+Iter = {\ttfamily 300} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [protected]}}
+
+This function calculates Effective Resistance and return computation status. 
+\begin{DoxyParams}{Parameters}
+{\em er} & A row matrix to receive the Effective\+Resistance value \\
+\hline
+{\em graph} & A std\+::shared\+\_\+ptr$<$\+I\+Graph$>$ object representing the graph to calculate resistance \\
+\hline
+{\em eps} & Error tolerance for conjugated gradient. Default is 1.\+0f. \\
+\hline
+{\em J\+L\+Tol} & Tolerance for JL projection Matrix. Default is 0.\+5f. (See \href{http://ccom.uprrp.edu/~ikoutis/SpectralAlgorithms.htm}{\tt http\+://ccom.\+uprrp.\+edu/$\sim$ikoutis/\+Spectral\+Algorithms.\+htm}.) \\
+\hline
+{\em max\+Iter} & Maximum iteration for conjugated gradient. Default is 300 iterations. \\
+\hline
+\end{DoxyParams}
 
 
 The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}

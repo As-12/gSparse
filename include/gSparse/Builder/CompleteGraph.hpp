@@ -11,6 +11,11 @@ namespace gSparse
 {
 	namespace Builder
 	{
+        /// \ingroup Builder
+        ///
+        /// This function builds a unit complete graph 
+        /// \param nodeCount  Number of nodes in the Complete graph 
+        ///
 		inline gSparse::Graph buildUnitCompleteGraph(std::size_t nodeCount)
 		{
             std::size_t & n = nodeCount;
@@ -31,13 +36,20 @@ namespace gSparse
 			}
 			return std::make_shared<gSparse::UndirectedGraph>(resultEdge);
 		}
-
+        /// \ingroup Builder
+        ///
+        /// This function builds a unit complete graph 
+        /// \param nodeCount  Number of nodes in the Complete graph 
+        /// \param lower_weight lower bound of the weight to randomize. The value must be greater than zero.
+        /// \param upper_weight upper bound of the weight to randomize. The value must be greater than zero.
         inline gSparse::Graph buildRandomCompleteGraph(std::size_t nodeCount, double lower_weight, double upper_weight)
 		{
             std::size_t & n = nodeCount;
 
             #ifndef NDEBUG
 			assert (upper_weight >= lower_weight);
+            assert (lower_weight > 0)
+            assert (upper_weight > 0)
 			#endif 
             
 			gSparse::EdgeMatrix resultEdge = gSparse::EdgeMatrix((n * (n - 1)) / 2, 2);
@@ -59,7 +71,6 @@ namespace gSparse
 			}
 			return std::make_shared<gSparse::UndirectedGraph>(resultEdge,resultWeight);
 		}
-
 	}
 }
 

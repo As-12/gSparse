@@ -1,7 +1,11 @@
 
+// Copyright (C) 2018 Thanaphon Chavengsaksongkram <as12production@gmail.com>, He Sun <he.sun@ed.ac.uk>
+// This file is subject to the license terms in the LICENSE file
+// found in the top-level directory of this distribution.
+
 #ifndef GSPARSE_ER_POLICY_APROXERSLMJACOBICG_HPP
 #define GSPARSE_ER_POLICY_APROXERSLMJACOBICG_HPP
-// Adaptation from http://ccom.uprrp.edu/~ikoutis/SpectralAlgorithms.htm
+
 #include "../../Config.hpp"
 #include "../../Util/JL.hpp"  // Building Random Projection
 
@@ -13,9 +17,21 @@ namespace gSparse
     {
         namespace Policy
         {
+            /// \ingroup EffectiveResistance
+            ///
+            /// This class Approximate Effective Weight Resistance
+            /// Adaptation from http://ccom.uprrp.edu/~ikoutis/SpectralAlgorithms.htm.
+            /// The algorithm leverages Conjugated Graident with Jacobi preconditioner to solve linear system
+            ///
             class AproxERSLMJacobiCG
             {
             protected:
+                /// This function calculates Effective Resistance and return computation status.
+                /// \param er A row matrix to receive the EffectiveResistance value
+                /// \param graph A std::shared_ptr<IGraph> object representing the graph to calculate resistance
+                /// \param eps Error tolerance for conjugated gradient. Default is 1.0f.
+                /// \param JLTol Tolerance for JL projection Matrix. Default is 0.5f. (See http://ccom.uprrp.edu/~ikoutis/SpectralAlgorithms.htm.)
+                /// \param maxIter  Maximum iteration for conjugated gradient. Default is 300 iterations.
                 inline gSparse::COMPUTE_INFO _calculateER(
                     gSparse::PrecisionRowMatrix & er,
                     const gSparse::Graph & graph,

@@ -1,4 +1,6 @@
 var searchData=
 [
-  ['write',['Write',['../classg_sparse_1_1_graph_c_s_v_writer.html#a588c4bf47ee70bb72079ac7d6f843c2d',1,'gSparse::GraphCSVWriter::Write(const gSparse::Graph &amp;graph)'],['../classg_sparse_1_1_graph_c_s_v_writer.html#a83598d104e12327bf819928239e18ca3',1,'gSparse::GraphCSVWriter::Write(const gSparse::EdgeMatrix &amp;Edges)'],['../classg_sparse_1_1_graph_c_s_v_writer.html#a66e9fe4e8887abca81d6d0090b217950',1,'gSparse::GraphCSVWriter::Write(const gSparse::EdgeMatrix &amp;Edges, const gSparse::PrecisionRowMatrix &amp;Weights)'],['../classg_sparse_1_1_i_graph_writer.html#a24a0956558888343c5e56a3c39b138af',1,'gSparse::IGraphWriter::Write(const gSparse::Graph &amp;graph)=0'],['../classg_sparse_1_1_i_graph_writer.html#aa778df52e1595439d724fc873a8dfb52',1,'gSparse::IGraphWriter::Write(const gSparse::EdgeMatrix &amp;Edges)=0'],['../classg_sparse_1_1_i_graph_writer.html#ae2c720f3e37629da40fdc5d0e4fe2dd2',1,'gSparse::IGraphWriter::Write(const gSparse::EdgeMatrix &amp;Edges, const gSparse::PrecisionRowMatrix &amp;Weights)=0']]]
+  ['setc',['SetC',['../classg_sparse_1_1_spectral_sparsifier_1_1_e_r_sampling.html#a35bf03bbda2e0d37345ce8d460e734a4',1,'gSparse::SpectralSparsifier::ERSampling']]],
+  ['setepsilon',['SetEpsilon',['../classg_sparse_1_1_spectral_sparsifier_1_1_e_r_sampling.html#a57eceac9af3b8846c3370eca999a9a57',1,'gSparse::SpectralSparsifier::ERSampling']]],
+  ['seterpolicy',['SetERPolicy',['../classg_sparse_1_1_spectral_sparsifier_1_1_e_r_sampling.html#a35cf40021c7fa90b5dda042896691bff',1,'gSparse::SpectralSparsifier::ERSampling']]]
 ];

@@ -60,7 +60,6 @@ namespace gSparse
         //! Write graph data to a CSV file specified in the constructor
         /*!
         \param graph: A graph object
-        \param Weights: An Eigen Matrix to receive the Weight list.
         */
 		virtual void inline Write(const gSparse::Graph & graph)
 		{

@@ -1,6 +1,10 @@
+// Copyright (C) 2018 Thanaphon Chavengsaksongkram <as12production@gmail.com>, He Sun <he.sun@ed.ac.uk>
+// This file is subject to the license terms in the LICENSE file
+// found in the top-level directory of this distribution.
+
 #ifndef GSPARSE_ER_POLICY_APPROXER_SPL_HPP
 #define GSPARSE_ER_POLICY_APPROXER_SPL_HPP
-// Adaptation from http://ccom.uprrp.edu/~ikoutis/SpectralAlgorithms.htm
+
 #include "../Config.hpp"
 
 #include "../Interface/EffectiveResistance.hpp"

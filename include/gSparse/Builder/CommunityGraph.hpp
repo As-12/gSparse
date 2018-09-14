@@ -1,3 +1,7 @@
+// Copyright (C) 2018 Thanaphon Chavengsaksongkram <as12production@gmail.com>, He Sun <he.sun@ed.ac.uk>
+// This file is subject to the license terms in the LICENSE file
+// found in the top-level directory of this distribution.
+
 #ifndef GSPARSE_BUILDER_COMMUNITYGRAPH_HPP
 #define GSPARSE_BUILDER_COMMUNITYGRAPH_HPP
 
@@ -51,8 +55,11 @@ namespace gSparse
 			}
 			return ss.str();
 		}
-		// A quick implementation to write a random community graph. 
-		// This requires a refactor / clean-up
+		/// \ingroup Builder
+        ///
+        /// This function builds a random community graph and write to a file
+		/// TODO: This function requires a clean-up / refactor.
+        ///
 		void createRandomGraph(int total_community = 3, int bridges = 4, int community_size = 30, const std::string & name="random.csv")
 		{
 			std::default_random_engine generator;

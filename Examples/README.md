@@ -1,28 +1,18 @@
-Example-1
+# Example Usages for gSparse
 
-Loading and Writing Graph Data to a file
+## Example-1.cpp
+Write a unit graph into a CSV file.
 
-Example-2a
+## Example-2.cpp
+Creates a gSparse graph object from CSV file.
 
-Calculating Graph Eigen Value using Spectra
+## Example-3.cpp
+Calculate Graph Effective Resistance
 
-Example-2
+## Example-4.cpp
+Sparsify a graph using Spectral Sparsification by Effective Resistance sampling.
 
-Build Complete-Graph and perform Spectral Sparsification
+## Example-5.cpp
+Calculate Eigen value of Graph Laplacian using Spectral C++ library
 
-Example-3
-
-Build Random Graph and perform Spectral Sparsification
-
-Example-4
-
-Sparsifying SNAP Database
-
-Example-5
-
-Sparsifying Image / Spectral clustering
-
-Example-6 Visualization Results with Python
-
-Example-7 Use gSparse on Python through Py11Bind
-
+ 
