@@ -14,9 +14,13 @@ an open source linear algebra library.
 **gSparse** currently supports the following algorithm(s). 
 - [Spectral Sparsification by Effective Resistance](https://arxiv.org/abs/0803.0929)
 
-## Header-only Library
+## Installation
 **gSparse** is implemented as a header-only C++ library, whose only dependency,
-**Eigen**, is also header-only.
+**Eigen**, is also header-only. 
+
+When compiling **gSparse**, the compiler must be able to find the **gSparse** and **Eigen** header files. This can be done by specifying compiler's include path to **Eigen** and **gSparse** source directories. 
+
+**gSparse** requires Compiler with C+11 support or above. 
 
 ## Relation to FastEffectiveResistance
 [FastER](http://www.cs.cmu.edu/~jkoutis/SpectralAlgorithms.htm) is a software written in

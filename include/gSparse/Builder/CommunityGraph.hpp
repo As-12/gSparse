@@ -17,8 +17,6 @@
 
 namespace gSparse
 {
-
-	
 	namespace Builder
 	{
 		std::string stringCleaner(const std::string & str)
