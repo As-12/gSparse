@@ -22,7 +22,7 @@ When compiling **gSparse**, the compiler must be able to find the **gSparse** an
 
 **gSparse** requires Compiler with C++11 support or above. 
 
-# Parallelization
+## Parallelization
 As **gSparse** utilizes **Eigen3** for its matrix operations, it is possible to enable multi-threading on these operations by simply setting compiler's option. See [Eigen and multi-threading](https://eigen.tuxfamily.org/dox/TopicMultiThreading.html).
 
 ## Relation to FastEffectiveResistance
